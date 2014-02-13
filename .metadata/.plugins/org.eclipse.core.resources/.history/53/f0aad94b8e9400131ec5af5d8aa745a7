@@ -6,6 +6,7 @@ import nl.xnagames.towerbridgedefense.screens.SplashScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
+//import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TowerBridgeDefense extends Game
 {
@@ -13,12 +14,6 @@ public class TowerBridgeDefense extends Game
 	// Maak voor elke screen een variabele.
 	private SplashScreen splashScreen;
 	private GameScreen gameScreen;
-	
-	// Properties
-	public GameScreen getGameScreen()
-	{
-		return this.gameScreen;
-	}
 	
 	
 	@Override
@@ -29,7 +24,7 @@ public class TowerBridgeDefense extends Game
 		this.gameScreen = new GameScreen(this);
 		
 		// Maak een van de screens actief
-		this.setScreen(this.splashScreen);
+		this.setScreen(this.gameScreen);
 	}
 
 	@Override

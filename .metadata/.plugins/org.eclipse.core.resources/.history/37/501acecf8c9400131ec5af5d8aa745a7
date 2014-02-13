@@ -1,34 +1,23 @@
 package nl.xnagames.towerbridgedefense;
 
-import nl.xnagames.towerbridgedefense.screens.GameScreen;
 import nl.xnagames.towerbridgedefense.screens.SplashScreen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
+//import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TowerBridgeDefense extends Game
 {
 	// Fields
-	// Maak voor elke screen een variabele.
+	//private SpriteBatch batch;
 	private SplashScreen splashScreen;
-	private GameScreen gameScreen;
-	
-	// Properties
-	public GameScreen getGameScreen()
-	{
-		return this.gameScreen;
-	}
 	
 	
 	@Override
 	public void create() 
 	{		
-		// Ken aan iedere screen-variabele een instantie toe
 		this.splashScreen = new SplashScreen(this);
-		this.gameScreen = new GameScreen(this);
-		
-		// Maak een van de screens actief
 		this.setScreen(this.splashScreen);
 	}
 
