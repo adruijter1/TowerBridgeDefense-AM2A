@@ -31,7 +31,7 @@ public class SplashScreen implements Screen
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		// Door het indrukken van de spatiebalk ga je naar de gameScreen toestand
-		if ( Gdx.input.isKeyPressed(Keys.SPACE))
+		if ( Gdx.input.isKeyPressed(Keys.SPACE) || Gdx.input.isTouched())
 		{
 			this.game.setScreen(this.game.getGameScreen());			
 		}

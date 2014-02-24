@@ -1,0 +1,2 @@
+# Module nl.xnagames.towerbridgedefense.GwtDefinition
+# RPC service class, partial path of RPC policy file
