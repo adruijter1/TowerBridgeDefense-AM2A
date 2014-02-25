@@ -7,4 +7,6 @@
 <fullyQualifiedTypeName name="nl.xnagames.towerbridgedefense.screens.GameScreen"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Gdx"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.Input.Keys"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.BitmapFont"/>
+<fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.SpriteBatch"/>
 </qualifiedTypeNameHistroy>

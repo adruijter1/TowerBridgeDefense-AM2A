@@ -6,6 +6,7 @@ import nl.xnagames.towerbridgedefense.screens.SplashScreen;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class TowerBridgeDefense extends Game
 {
@@ -13,6 +14,7 @@ public class TowerBridgeDefense extends Game
 	// Maak voor elke screen een variabele.
 	private SplashScreen splashScreen;
 	private GameScreen gameScreen;
+	private SpriteBatch spriteBatch;
 	
 	// Properties
 	public GameScreen getGameScreen()
@@ -20,10 +22,18 @@ public class TowerBridgeDefense extends Game
 		return this.gameScreen;
 	}
 	
+	public SpriteBatch getSpriteBatch()
+	{
+		return this.spriteBatch;
+	}
+	
 	
 	@Override
 	public void create() 
 	{		
+		// Maak een SpriteBatch object en ken deze toe aan de variabele spriteBatch
+		this.spriteBatch = new SpriteBatch();
+		
 		// Ken aan iedere screen-variabele een instantie toe
 		this.splashScreen = new SplashScreen(this);
 		this.gameScreen = new GameScreen(this);
@@ -41,7 +51,7 @@ public class TowerBridgeDefense extends Game
 
 	@Override
 	public void render() {		
-		Gdx.gl.glClearColor(0.84f, 0.19f, 0.19f, 1);
+		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		
 		super.render();
