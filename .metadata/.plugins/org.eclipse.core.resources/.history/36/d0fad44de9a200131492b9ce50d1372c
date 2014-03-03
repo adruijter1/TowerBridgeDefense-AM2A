@@ -58,8 +58,8 @@ public class SplashScreen implements Screen
 		this.font32 = new BitmapFont(Gdx.files.internal("fonts/tbd_bitmap.fnt"));
 		
 		// We maken een object aan van de class Transparancy
-		this.transparancyTB = new Transparancy(0.5f, 0.5f, 3.9f, -0.1f);
-		this.transparancyD = new Transparancy(0.5f, 0.5f, 3.9f, 0.1f);
+		this.transparancyTB = new Transparancy(0.5f, 0.5f, 3.9f, 0f);
+		this.transparancyD = new Transparancy(0.5f, 0.5f, 3.9f, 0.1f * (float)Math.PI);
 	}
 	
 	

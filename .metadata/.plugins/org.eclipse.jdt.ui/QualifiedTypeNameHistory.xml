@@ -10,4 +10,5 @@
 <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.BitmapFont"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.SpriteBatch"/>
 <fullyQualifiedTypeName name="com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator"/>
+<fullyQualifiedTypeName name="nl.xnagames.towerbridgedefense.transparancy.Transparancy"/>
 </qualifiedTypeNameHistroy>

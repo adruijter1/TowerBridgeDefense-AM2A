@@ -41,7 +41,6 @@ public class Transparancy {
 	public float sinusWave()
 	{
 		return  this.equilibrium + this.amplitude * 
-						(float)Math.sin(2d * Math.PI / this.period * 
-						    (this.timer - this.periodShift * (float)Math.PI));
+						(float)Math.sin(2d * Math.PI * this.timer / this.period);
 	}
 }

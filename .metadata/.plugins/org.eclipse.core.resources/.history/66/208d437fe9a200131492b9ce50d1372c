@@ -42,6 +42,6 @@ public class Transparancy {
 	{
 		return  this.equilibrium + this.amplitude * 
 						(float)Math.sin(2d * Math.PI / this.period * 
-						    (this.timer - this.periodShift * (float)Math.PI));
+						    (this.timer - this.periodShift));
 	}
 }
