@@ -1,6 +1,7 @@
 package nl.xnagames.towerbridgedefense.screens;
 
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
+import nl.xnagames.towerbridgedefense.transparancy.Transparancy;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -23,8 +24,11 @@ public class SplashScreen implements Screen
 	// Html project
 	private FreeTypeFontGenerator generator;
 	
-	// Afspelen van een lang muziekfile doe je met een music object
+	// Afspelen van een lange muziekfile doe je met een music object
 	private Music towerBell;
+	
+	// Maak een variabele voor het maken van een object van de class transparancy
+	private Transparancy transparancy;
 	
 	// Properties
 	
@@ -51,7 +55,10 @@ public class SplashScreen implements Screen
 		this.generator.dispose();
 		
 		// We maken nu een object aan font32 genaamd
-		this.font32 = new BitmapFont(Gdx.files.internal("fonts/tbd_bitmap.fnt"));		
+		this.font32 = new BitmapFont(Gdx.files.internal("fonts/tbd_bitmap.fnt"));
+		
+		// We maken een object aan van de class Transparancy
+		this.transparancy = new Transparancy(0.5f, 0.5f, 1f, 0f);
 	}
 	
 	
@@ -60,6 +67,8 @@ public class SplashScreen implements Screen
 	{
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		
+		this.transparancy.Update();
 		
 		// Door het indrukken van de spatiebalk ga je naar de gameScreen toestand
 		if ( Gdx.input.isKeyPressed(Keys.SPACE) || Gdx.input.isTouched())
@@ -87,7 +96,8 @@ public class SplashScreen implements Screen
 						 100f);
 		
 		// Maak de tekst Tower Bridge
-		String text180 = "Tower Bridge"; 
+		String text180 = "Tower Bridge";
+		this.font180.setColor(1f, 1f, 1f, this.transparancy.sinusWave());
 		
 		this.font180.draw(this.game.getSpriteBatch(),
 						  text180,
