@@ -1,0 +1,103 @@
+
+textureatlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bus0001
+  rotate: false
+  xy: 1, 501
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: -1
+bus0002
+  rotate: false
+  xy: 1, 7
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: -1
+bus0003
+  rotate: false
+  xy: 643, 501
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: -1
+bus0004
+  rotate: false
+  xy: 643, 7
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: -1
+bus0005
+  rotate: false
+  xy: 1285, 501
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: -1
+bus0006
+  rotate: false
+  xy: 1285, 7
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: -1
+bus0007
+  rotate: false
+  xy: 1927, 501
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: -1
+Cab0001
+  rotate: false
+  xy: 1927, 267
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: -1
+Cab0007
+  rotate: false
+  xy: 1927, 267
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: -1
+Cab0002
+  rotate: false
+  xy: 2569, 761
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: -1
+Cab0003
+  rotate: false
+  xy: 1927, 33
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: -1
+Cab0004
+  rotate: false
+  xy: 2569, 527
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: -1
+Cab0005
+  rotate: false
+  xy: 2951, 761
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: -1
+Cab0006
+  rotate: false
+  xy: 2951, 527
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: -1
