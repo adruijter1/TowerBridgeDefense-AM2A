@@ -121,7 +121,7 @@ public class SplashScreen implements Screen
 						  Gdx.graphics.getHeight() * 2/3 - this.font180.getBounds(text180).height * 7/5);
 		
 		// Teken de bus instantie
-		
+		this.bus.update(delta);
 		this.bus.draw(delta);
 		
 		//Hier wordt de end() method aangeroepen van this.game.getSpriteBatch()

@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename field &apos;font200&apos; in &apos;nl.xnagames.towerbridgedefense.screens.SplashScreen&apos; to &apos;font180&apos;&#x0D;&#x0A;- Original project: &apos;towerbridgedefense&apos;&#x0D;&#x0A;- Original element: &apos;nl.xnagames.towerbridgedefense.screens.SplashScreen.font200&apos;&#x0D;&#x0A;- Renamed element: &apos;nl.xnagames.towerbridgedefense.screens.SplashScreen.font180&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;font200&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;nl.xnagames.towerbridgedefense.screens{SplashScreen.java[SplashScreen^font200" name="font180" references="true" setter="false" stamp="1393332595971" textual="false" version="1.0"/>
-</session>

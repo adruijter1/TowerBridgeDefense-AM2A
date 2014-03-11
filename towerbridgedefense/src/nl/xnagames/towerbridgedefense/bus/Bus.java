@@ -23,6 +23,16 @@ public class Bus
 		return this.game;
 	}
 	
+	public float getScaleFactor()
+	{
+		return this.scaleFactor;
+	}
+	
+	public float getSize()
+	{
+		return this.size;
+	}
+	
 	
 	
 	// Constructor

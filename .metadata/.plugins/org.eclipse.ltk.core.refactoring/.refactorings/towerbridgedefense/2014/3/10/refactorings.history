@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;transparancy.java&apos; to &apos;towerbridgedefense/src/nl.xnagames.towerbridgedefense.transparancy&apos;&#x0D;&#x0A;- Original project: &apos;towerbridgedefense&apos;&#x0D;&#x0A;- Destination element: &apos;towerbridgedefense/src/nl.xnagames.towerbridgedefense.transparancy&apos;&#x0D;&#x0A;- Original element: &apos;nl.xnagames.towerbridgedefense.transparancy.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;nl.xnagames.towerbridgedefense.transparancy" element1="/src&lt;nl.xnagames.towerbridgedefense{transparancy.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1393857334883" units="1" version="1.0"/>
-</session>
