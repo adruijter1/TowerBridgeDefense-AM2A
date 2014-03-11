@@ -7,6 +7,7 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 public class TowerBridgeDefense extends Game
 {
@@ -15,6 +16,7 @@ public class TowerBridgeDefense extends Game
 	private SplashScreen splashScreen;
 	private GameScreen gameScreen;
 	private SpriteBatch spriteBatch;
+	private TextureAtlas atlas;
 	
 	// Properties
 	public GameScreen getGameScreen()
@@ -27,12 +29,21 @@ public class TowerBridgeDefense extends Game
 		return this.spriteBatch;
 	}
 	
+	public TextureAtlas getAtlas()
+	{
+		return this.atlas;
+	}
+	
+	
 	
 	@Override
 	public void create() 
 	{		
 		// Maak een SpriteBatch object en ken deze toe aan de variabele spriteBatch
 		this.spriteBatch = new SpriteBatch();
+		
+		// Maak een instantie van de TextureAtlas class
+		this.atlas = new TextureAtlas(Gdx.files.internal("data/textureatlas.pack"));
 		
 		// Ken aan iedere screen-variabele een instantie toe
 		this.splashScreen = new SplashScreen(this);

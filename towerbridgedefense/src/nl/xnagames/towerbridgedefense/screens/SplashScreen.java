@@ -1,7 +1,9 @@
 package nl.xnagames.towerbridgedefense.screens;
 
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
+import nl.xnagames.towerbridgedefense.bus.Bus;
 import nl.xnagames.towerbridgedefense.transparancy.Transparancy;
+
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -29,6 +31,9 @@ public class SplashScreen implements Screen
 	
 	// Maak een variabele voor het maken van een object van de class transparancy
 	private Transparancy transparancyTB, transparancyD;
+	
+	// Maak een variabele aan die een businstantie kan bevatten
+	private Bus bus;
 	
 	// Properties
 	
@@ -60,6 +65,9 @@ public class SplashScreen implements Screen
 		// We maken een object aan van de class Transparancy
 		this.transparancyTB = new Transparancy(0.5f, 0.5f, 3.9f, -0.1f);
 		this.transparancyD = new Transparancy(0.5f, 0.5f, 3.9f, 0.1f);
+		
+		// Maak een instantie aan van de bus
+		this.bus = new Bus(this.game);
 	}
 	
 	
@@ -112,7 +120,9 @@ public class SplashScreen implements Screen
 						  Gdx.graphics.getWidth()/2 - this.font120.getBounds(text120).width/2,
 						  Gdx.graphics.getHeight() * 2/3 - this.font180.getBounds(text180).height * 7/5);
 		
+		// Teken de bus instantie
 		
+		this.bus.draw(delta);
 		
 		//Hier wordt de end() method aangeroepen van this.game.getSpriteBatch()
 		this.game.getSpriteBatch().end();
