@@ -1,5 +1,7 @@
 package nl.xnagames.towerbridgedefense.animatedsprite;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+
 import nl.xnagames.towerbridgedefense.bus.Bus;
 
 public class AnimatedSprite
@@ -8,6 +10,8 @@ public class AnimatedSprite
 	private Bus bus;
 	private float timer = 0;
 	private int frame = 3;
+	protected boolean effect =false;
+	private TextureAtlas atlas;
 	
 	// Properties
 	
@@ -15,6 +19,7 @@ public class AnimatedSprite
 	public AnimatedSprite(Bus bus)
 	{
 		this.bus = bus;
+		this.atlas = this.bus.getGame().getAtlas();
 	}
 	
 	
@@ -37,8 +42,14 @@ public class AnimatedSprite
 	// Draw method
 	public void draw(float delta)
 	{
+		if ( this.effect && !this.atlas.findRegion("bus000" + Integer.toString(this.frame)).isFlipX())
+		{
+			this.atlas.findRegion("bus000" + Integer.toString(this.frame)).flip(true, false);
+		}
+			
+		
 		this.bus.getGame().getSpriteBatch().
-			draw(this.bus.getGame().getAtlas().findRegion("bus000" + Integer.toString(this.frame)),
+			draw(this.atlas.findRegion("bus000" + Integer.toString(this.frame)),
 				 200f, 
 				 400f,
 				 this.bus.getSize()/this.bus.getScaleFactor(),

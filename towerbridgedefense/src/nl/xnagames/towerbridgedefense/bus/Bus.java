@@ -15,6 +15,7 @@ public class Bus
 	private float scaleFactor;
 	private float size;
 	private BusDriveLeft driveLeft;
+	private BusDriveRight driveRight;
 	private AnimatedSprite state;
 	
 	// Properties
@@ -40,10 +41,11 @@ public class Bus
 	{
 		this.game = game;
 		this.driveLeft = new BusDriveLeft(this);
+		this.driveRight = new BusDriveRight(this);
 		this.bus = game.getAtlas().findRegion("bus000" + Integer.toString(3));
 		this.scaleFactor = (float)this.bus.getRegionHeight()/(float)this.bus.getRegionWidth();
 		this.size = 192f;
-		this.state = this.driveLeft;
+		this.state = this.driveRight;
 	}
 	
 	// Update method

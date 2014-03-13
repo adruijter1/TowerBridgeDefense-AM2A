@@ -83,7 +83,7 @@ public class SplashScreen implements Screen
 		// Door het indrukken van de spatiebalk ga je naar de gameScreen toestand
 		if ( Gdx.input.isKeyPressed(Keys.SPACE) || Gdx.input.isTouched())
 		{
-			this.game.setScreen(this.game.getGameScreen());			
+			//this.game.setScreen(this.game.getGameScreen());			
 		}
 		
 		// Hier wordt de begin() method aangeroepen van de this.game.getSpriteBatch()
