@@ -46,12 +46,18 @@ public class AnimatedSprite
 		{
 			this.atlas.findRegion("bus000" + Integer.toString(this.frame)).flip(true, false);
 		}
-			
+		else
+		{
+			if (!this.effect && this.atlas.findRegion("bus000" + Integer.toString(this.frame)).isFlipX())
+			{
+				this.atlas.findRegion("bus000" + Integer.toString(this.frame)).flip(true, false);
+			}
+		}
 		
 		this.bus.getGame().getSpriteBatch().
 			draw(this.atlas.findRegion("bus000" + Integer.toString(this.frame)),
-				 200f, 
-				 400f,
+				 this.bus.getPosition().x, 
+				 this.bus.getPosition().y,
 				 this.bus.getSize()/this.bus.getScaleFactor(),
 				 this.bus.getSize());
 	}	

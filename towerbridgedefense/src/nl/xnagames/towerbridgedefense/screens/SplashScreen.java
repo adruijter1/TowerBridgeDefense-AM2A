@@ -12,6 +12,7 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.math.Vector2;
 
 public class SplashScreen implements Screen
 {
@@ -67,7 +68,7 @@ public class SplashScreen implements Screen
 		this.transparancyD = new Transparancy(0.5f, 0.5f, 3.9f, 0.1f);
 		
 		// Maak een instantie aan van de bus
-		this.bus = new Bus(this.game);
+		this.bus = new Bus(this.game, new Vector2(0f, 200f));
 	}
 	
 	
