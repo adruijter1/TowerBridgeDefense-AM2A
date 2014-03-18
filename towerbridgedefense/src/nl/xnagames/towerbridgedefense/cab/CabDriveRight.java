@@ -26,9 +26,9 @@ public class CabDriveRight extends AnimatedSprite
 	{
 		for (int i = 1; i <= 7; i++)
 		{
-			if (!this.cab.getRegion().get("Cab000" + Integer.toString(i)).isFlipX())
+			if (!this.cab.getRegion().get(this.cab.getName() + Integer.toString(i)).isFlipX())
 			{
-				this.cab.getRegion().get("Cab000" + Integer.toString(i)).flip(true, false);
+				this.cab.getRegion().get(this.cab.getName() + Integer.toString(i)).flip(true, false);
 			}
 		}
 	}		

@@ -36,7 +36,7 @@ public class AnimatedSprite
 	public void draw(float delta)
 	{
 		this.animation.getGame().getSpriteBatch().
-			draw(this.animation.getRegion().get("bus000" + Integer.toString(this.frame)),
+			draw(this.animation.getRegion().get(this.animation.getName() + Integer.toString(this.frame)),
 				 this.animation.getPosition().x, 
 				 this.animation.getPosition().y,
 				 this.animation.getSize()/this.animation.getScaleFactor(),

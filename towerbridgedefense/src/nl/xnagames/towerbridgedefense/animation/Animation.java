@@ -18,4 +18,6 @@ public interface Animation
 	public float getScaleFactor();
 	
 	public TowerBridgeDefense getGame();
+	
+	public String getName();
 }

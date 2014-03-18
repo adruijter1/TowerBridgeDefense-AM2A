@@ -26,9 +26,9 @@ public class BusDriveRight extends AnimatedSprite
 	{
 		for (int i = 1; i <= 7; i++)
 		{
-			if (!this.bus.getRegion().get("bus000" + Integer.toString(i)).isFlipX())
+			if (!this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).isFlipX())
 			{
-				this.bus.getRegion().get("bus000" + Integer.toString(i)).flip(true, false);
+				this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).flip(true, false);
 			}
 		}
 	}		

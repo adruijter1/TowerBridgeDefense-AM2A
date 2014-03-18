@@ -26,7 +26,14 @@ public class Bus implements Animation
 	// HashMap koppelt een String aan een AtlasRegion
 	private HashMap<String, AtlasRegion> region;
 	
+	// Name van het plaatje op de TextureAtlas
+	private String name;
+	
 	// Properties
+	public String getName()
+	{
+		return this.name;
+	}
 	public TowerBridgeDefense getGame()
 	{
 		return this.game;
@@ -77,6 +84,7 @@ public class Bus implements Animation
 	{
 		this.game = game;
 		this.position = position;
+		this.name = name;
 		
 		// We maken een instantie van de HashMap die we koppelen aan this.region
 		this.region = new HashMap<String, AtlasRegion>();
@@ -84,13 +92,13 @@ public class Bus implements Animation
 		// We vullen de HashMap met de naam en region van elk frame
 		for (int i = 1; i <= 7; i++)
 		{
-			this.region.put(game.getAtlas().findRegion("bus000" + Integer.toString(i)).name,
-							game.getAtlas().findRegion("bus000" + Integer.toString(i)));
+			this.region.put(game.getAtlas().findRegion(name + Integer.toString(i)).name,
+							game.getAtlas().findRegion(name + Integer.toString(i)));
 		}
 		
 		this.driveLeft = new BusDriveLeft(this);
 		this.driveRight = new BusDriveRight(this);
-		this.singleFrame = game.getAtlas().findRegion("bus000" + Integer.toString(3));
+		this.singleFrame = game.getAtlas().findRegion(name + Integer.toString(3));
 		this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
 		this.size = 192f;
 		this.state = this.driveRight;
