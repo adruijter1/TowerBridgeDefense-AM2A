@@ -1,4 +1,4 @@
-package nl.xnagames.towerbridgedefense.bus;
+package nl.xnagames.towerbridgedefense.cab;
 
 import java.util.HashMap;
 
@@ -6,20 +6,19 @@ import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 
-public class Bus implements Animation
+public class Cab implements Animation
 {
 	// Fields
 	private TowerBridgeDefense game;
 	private AtlasRegion singleFrame;
 	private float scaleFactor;
 	private float size;
-	private BusDriveLeft driveLeft;
-	private BusDriveRight driveRight;
+	private CabDriveLeft driveLeft;
+	private CabDriveRight driveRight;
 	private AnimatedSprite state;
 	private float speed = 3;
 	private Vector2 position;
@@ -55,12 +54,12 @@ public class Bus implements Animation
 	{
 		this.state = state;
 	}
-	public BusDriveLeft getDriveLeft()
+	public CabDriveLeft getDriveLeft()
 	{
 		this.driveLeft.Initialize();
 		return this.driveLeft;
 	}
-	public BusDriveRight getDriveRight()
+	public CabDriveRight getDriveRight()
 	{
 		this.driveRight.Initialize();
 		return this.driveRight;
@@ -73,7 +72,7 @@ public class Bus implements Animation
 	
 	
 	// Constructor
-	public Bus(TowerBridgeDefense game, Vector2 position, String name)
+	public Cab(TowerBridgeDefense game, Vector2 position)
 	{
 		this.game = game;
 		this.position = position;
@@ -84,16 +83,16 @@ public class Bus implements Animation
 		// We vullen de HashMap met de naam en region van elk frame
 		for (int i = 1; i <= 7; i++)
 		{
-			this.region.put(game.getAtlas().findRegion("bus000" + Integer.toString(i)).name,
-							game.getAtlas().findRegion("bus000" + Integer.toString(i)));
+			this.region.put(game.getAtlas().findRegion("Cab000" + Integer.toString(i)).name,
+							game.getAtlas().findRegion("Cab000" + Integer.toString(i)));
 		}
 		
-		this.driveLeft = new BusDriveLeft(this);
-		this.driveRight = new BusDriveRight(this);
-		this.singleFrame = game.getAtlas().findRegion("bus000" + Integer.toString(3));
+		this.driveLeft = new CabDriveLeft(this);
+		this.driveRight = new CabDriveRight(this);
+		this.singleFrame = game.getAtlas().findRegion("Cab000" + Integer.toString(3));
 		this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
 		this.size = 192f;
-		this.state = this.driveRight;
+		this.state = this.driveLeft;
 	}
 	
 	// Update method
@@ -108,3 +107,4 @@ public class Bus implements Animation
 		this.state.draw(delta);
 	}
 }
+

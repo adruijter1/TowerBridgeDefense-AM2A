@@ -1,27 +1,21 @@
 package nl.xnagames.towerbridgedefense.animatedsprite;
 
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-
-import nl.xnagames.towerbridgedefense.bus.Bus;
+import nl.xnagames.towerbridgedefense.animation.Animation;
 
 public class AnimatedSprite
 {
 	// Fields
-	private Bus bus;
+	private Animation animation;
 	private float timer = 0;
-	private int frame = 3;
-	protected boolean effect =false;
-	private TextureAtlas atlas;
+	private int frame = 1;
 	
 	// Properties
 	
 	// Constructor
-	public AnimatedSprite(Bus bus)
+	public AnimatedSprite(Animation animation)
 	{
-		this.bus = bus;
-		this.atlas = this.bus.getGame().getAtlas();
-	}
-	
+		this.animation = animation;
+	}	
 	
 	// Update method
 	public void update(float delta)
@@ -31,34 +25,21 @@ public class AnimatedSprite
 		{
 			this.frame++;
 			this.timer = 0;
-			if ( this.frame > 7)
+			if ( this.frame >= 7)
 			{
 				this.frame = 1;
 			}
 		}
-	}
-	
+	}	
 	
 	// Draw method
 	public void draw(float delta)
 	{
-		if ( this.effect && !this.atlas.findRegion("bus000" + Integer.toString(this.frame)).isFlipX())
-		{
-			this.atlas.findRegion("bus000" + Integer.toString(this.frame)).flip(true, false);
-		}
-		else
-		{
-			if (!this.effect && this.atlas.findRegion("bus000" + Integer.toString(this.frame)).isFlipX())
-			{
-				this.atlas.findRegion("bus000" + Integer.toString(this.frame)).flip(true, false);
-			}
-		}
-		
-		this.bus.getGame().getSpriteBatch().
-			draw(this.atlas.findRegion("bus000" + Integer.toString(this.frame)),
-				 this.bus.getPosition().x, 
-				 this.bus.getPosition().y,
-				 this.bus.getSize()/this.bus.getScaleFactor(),
-				 this.bus.getSize());
+		this.animation.getGame().getSpriteBatch().
+			draw(this.animation.getRegion().get("bus000" + Integer.toString(this.frame)),
+				 this.animation.getPosition().x, 
+				 this.animation.getPosition().y,
+				 this.animation.getSize()/this.animation.getScaleFactor(),
+				 this.animation.getSize());
 	}	
 }

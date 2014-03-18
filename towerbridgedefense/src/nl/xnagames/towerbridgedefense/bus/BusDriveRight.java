@@ -18,15 +18,25 @@ public class BusDriveRight extends AnimatedSprite
 	{
 		super(bus);
 		this.bus = bus;
-		this.effect = true;
 		this.velocity = new Vector2(bus.getSpeed(), 0);
+		this.Initialize();
 	}
-		
+	
+	public void Initialize()
+	{
+		for (int i = 1; i <= 7; i++)
+		{
+			if (!this.bus.getRegion().get("bus000" + Integer.toString(i)).isFlipX())
+			{
+				this.bus.getRegion().get("bus000" + Integer.toString(i)).flip(true, false);
+			}
+		}
+	}		
 		
 	// Update method
 	public void update(float delta)
 	{
-		if ( this.bus.getPosition().x > Gdx.graphics.getWidth() + 300)
+		if ( this.bus.getPosition().x > Gdx.graphics.getWidth() - 300)
 		{
 			this.bus.setState(this.bus.getDriveLeft());
 		}

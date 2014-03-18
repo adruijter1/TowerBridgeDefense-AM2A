@@ -2,6 +2,7 @@ package nl.xnagames.towerbridgedefense.screens;
 
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.bus.Bus;
+import nl.xnagames.towerbridgedefense.cab.Cab;
 import nl.xnagames.towerbridgedefense.transparancy.Transparancy;
 
 
@@ -36,6 +37,9 @@ public class SplashScreen implements Screen
 	// Maak een variabele aan die een businstantie kan bevatten
 	private Bus bus;
 	
+	// Maak een variabele aan die een cabinstantie kan bevatten
+	private Cab cab;
+		
 	// Properties
 	
 	
@@ -69,6 +73,9 @@ public class SplashScreen implements Screen
 		
 		// Maak een instantie aan van de bus
 		this.bus = new Bus(this.game, new Vector2(0f, 200f));
+		
+		// Maak een instantie aan van de bus
+		this.cab = new Cab(this.game, new Vector2(0f, 200f));
 	}
 	
 	
@@ -86,6 +93,9 @@ public class SplashScreen implements Screen
 		{
 			//this.game.setScreen(this.game.getGameScreen());			
 		}
+		
+		this.bus.update(delta);
+		this.cab.update(delta);
 		
 		// Hier wordt de begin() method aangeroepen van de this.game.getSpriteBatch()
 		// Alle draw methods moeten tussen de begin() en end() method zitten van 
@@ -122,8 +132,12 @@ public class SplashScreen implements Screen
 						  Gdx.graphics.getHeight() * 2/3 - this.font180.getBounds(text180).height * 7/5);
 		
 		// Teken de bus instantie
-		this.bus.update(delta);
+		
 		this.bus.draw(delta);
+		
+		// Teken de cab instantie
+		
+		this.cab.draw(delta);
 		
 		//Hier wordt de end() method aangeroepen van this.game.getSpriteBatch()
 		this.game.getSpriteBatch().end();
