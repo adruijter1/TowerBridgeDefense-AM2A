@@ -1,103 +1,159 @@
 
-textureatlas.png
+textureAtlas.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
-bus0001
+bus
   rotate: false
-  xy: 1, 501
+  xy: 1, 1473
   size: 640, 480
   orig: 640, 480
   offset: 0, 0
-  index: -1
-bus0002
+  index: 1
+bus
   rotate: false
-  xy: 1, 7
+  xy: 1, 991
   size: 640, 480
   orig: 640, 480
   offset: 0, 0
-  index: -1
-bus0003
+  index: 2
+bus
   rotate: false
-  xy: 643, 501
+  xy: 643, 1473
   size: 640, 480
   orig: 640, 480
   offset: 0, 0
-  index: -1
-bus0004
+  index: 3
+bus
   rotate: false
-  xy: 643, 7
+  xy: 1, 509
   size: 640, 480
   orig: 640, 480
   offset: 0, 0
-  index: -1
-bus0005
+  index: 4
+bus
   rotate: false
-  xy: 1285, 501
+  xy: 643, 991
   size: 640, 480
   orig: 640, 480
   offset: 0, 0
-  index: -1
-bus0006
+  index: 5
+bus
   rotate: false
-  xy: 1285, 7
+  xy: 1285, 1473
   size: 640, 480
   orig: 640, 480
   offset: 0, 0
-  index: -1
-bus0007
+  index: 6
+bus
   rotate: false
-  xy: 1927, 501
+  xy: 1, 27
   size: 640, 480
   orig: 640, 480
   offset: 0, 0
-  index: -1
-Cab0001
+  index: 7
+cab
   rotate: false
-  xy: 1927, 267
+  xy: 643, 769
   size: 380, 220
   orig: 380, 220
   offset: 0, 0
-  index: -1
-Cab0007
+  index: 1
+cab
   rotate: false
-  xy: 1927, 267
+  xy: 643, 769
   size: 380, 220
   orig: 380, 220
   offset: 0, 0
-  index: -1
-Cab0002
+  index: 7
+cab
   rotate: false
-  xy: 2569, 761
+  xy: 1285, 1251
   size: 380, 220
   orig: 380, 220
   offset: 0, 0
-  index: -1
-Cab0003
+  index: 2
+cab
   rotate: false
-  xy: 1927, 33
+  xy: 1667, 1251
   size: 380, 220
   orig: 380, 220
   offset: 0, 0
-  index: -1
-Cab0004
+  index: 3
+cab
   rotate: false
-  xy: 2569, 527
+  xy: 643, 547
   size: 380, 220
   orig: 380, 220
   offset: 0, 0
-  index: -1
-Cab0005
+  index: 4
+cab
   rotate: false
-  xy: 2951, 761
+  xy: 1285, 1029
   size: 380, 220
   orig: 380, 220
   offset: 0, 0
-  index: -1
-Cab0006
+  index: 5
+cab
   rotate: false
-  xy: 2951, 527
+  xy: 1667, 1029
   size: 380, 220
   orig: 380, 220
   offset: 0, 0
-  index: -1
+  index: 6
+swan
+  rotate: false
+  xy: 1025, 809
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 1
+swan
+  rotate: false
+  xy: 643, 365
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 2
+swan
+  rotate: false
+  xy: 1025, 627
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 3
+swan
+  rotate: false
+  xy: 643, 183
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 4
+swan
+  rotate: false
+  xy: 643, 1
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 5
+swan
+  rotate: false
+  xy: 885, 365
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 6
+swan
+  rotate: false
+  xy: 885, 183
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 7
+swan
+  rotate: false
+  xy: 885, 1
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 8

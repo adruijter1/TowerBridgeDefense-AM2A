@@ -72,10 +72,10 @@ public class SplashScreen implements Screen
 		this.transparancyD = new Transparancy(0.5f, 0.5f, 3.9f, 0.1f);
 		
 		// Maak een instantie aan van de bus
-		this.bus = new Bus(this.game, new Vector2(0f, 200f), "bus000");
+		this.bus = new Bus(this.game, new Vector2(0f, 200f), "bus");
 		
 		// Maak een instantie aan van de bus
-		this.cab = new Cab(this.game, new Vector2(400f, 200f), "Cab000");
+		this.cab = new Cab(this.game, new Vector2(400f, 200f), "cab");
 	}
 	
 	

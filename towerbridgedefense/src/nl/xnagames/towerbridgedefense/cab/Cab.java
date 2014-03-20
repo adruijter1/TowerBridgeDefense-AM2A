@@ -9,6 +9,7 @@ import nl.xnagames.towerbridgedefense.animation.Animation;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 public class Cab implements Animation
 {
@@ -22,8 +23,7 @@ public class Cab implements Animation
 	private AnimatedSprite state;
 	private float speed = 3;
 	private Vector2 position;
-	// HashMap koppelt een String aan een AtlasRegion
-	private HashMap<String, AtlasRegion> region;
+	private Array<AtlasRegion> region;
 	
 	// Name bevat de naam van het plaatje op de TextureAtlas
 	private String name;
@@ -71,7 +71,7 @@ public class Cab implements Animation
 		this.driveRight.Initialize();
 		return this.driveRight;
 	}
-	public HashMap<String, AtlasRegion> getRegion()
+	public Array<AtlasRegion> getRegion()
 	{
 		return this.region;
 	}
@@ -86,18 +86,13 @@ public class Cab implements Animation
 		this.name = name;
 		
 		// We maken een instantie van de HashMap die we koppelen aan this.region
-		this.region = new HashMap<String, AtlasRegion>();
+		this.region = new Array<AtlasRegion>();
 		
-		// We vullen de HashMap met de naam en region van elk frame
-		for (int i = 1; i <= 7; i++)
-		{
-			this.region.put(game.getAtlas().findRegion(name + Integer.toString(i)).name,
-							game.getAtlas().findRegion(name + Integer.toString(i)));
-		}
+		this.region = game.getAtlas().findRegions(name);
 		
 		this.driveLeft = new CabDriveLeft(this);
 		this.driveRight = new CabDriveRight(this);
-		this.singleFrame = game.getAtlas().findRegion(name + Integer.toString(3));
+		this.singleFrame = this.region.first();
 		this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
 		this.size = 140f;
 		this.state = this.driveRight;

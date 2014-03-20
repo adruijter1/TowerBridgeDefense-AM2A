@@ -1,5 +1,6 @@
 package nl.xnagames.towerbridgedefense.bus;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
@@ -22,13 +23,23 @@ public class BusDriveLeft extends AnimatedSprite
 	
 	public void Initialize()
 	{
+		for ( AtlasRegion region : this.bus.getRegion())
+		{
+			if ( region.isFlipX())
+			{
+				region.flip(true, false);
+			}
+		}		
+		
+		/*
+		
 		for (int i = 1; i <= 7; i++)
 		{
 			if (this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).isFlipX())
 			{
 				this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).flip(true, false);
 			}
-		}
+		}*/
 	}
 		
 		

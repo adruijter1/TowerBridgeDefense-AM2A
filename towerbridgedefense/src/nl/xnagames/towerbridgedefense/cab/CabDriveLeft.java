@@ -1,5 +1,6 @@
 package nl.xnagames.towerbridgedefense.cab;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
@@ -23,11 +24,11 @@ public class CabDriveLeft extends AnimatedSprite
 	
 	public void Initialize()
 	{
-		for (int i = 1; i <= 7; i++)
+		for (AtlasRegion region : this.cab.getRegion())
 		{
-			if (this.cab.getRegion().get(this.cab.getName() + Integer.toString(i)).isFlipX())
+			if (region.isFlipX())
 			{
-				this.cab.getRegion().get(this.cab.getName() + Integer.toString(i)).flip(true, false);
+				region.flip(true, false);
 			}
 		}
 	}

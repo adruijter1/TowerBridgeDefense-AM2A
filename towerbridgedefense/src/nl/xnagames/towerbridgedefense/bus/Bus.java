@@ -10,6 +10,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 public class Bus implements Animation
 {
@@ -24,7 +25,7 @@ public class Bus implements Animation
 	private float speed = 3;
 	private Vector2 position;
 	// HashMap koppelt een String aan een AtlasRegion
-	private HashMap<String, AtlasRegion> region;
+	private Array<AtlasRegion> region;
 	
 	// Name van het plaatje op de TextureAtlas
 	private String name;
@@ -72,7 +73,7 @@ public class Bus implements Animation
 		this.driveRight.Initialize();
 		return this.driveRight;
 	}
-	public HashMap<String, AtlasRegion> getRegion()
+	public Array<AtlasRegion> getRegion()
 	{
 		return this.region;
 	}
@@ -87,18 +88,13 @@ public class Bus implements Animation
 		this.name = name;
 		
 		// We maken een instantie van de HashMap die we koppelen aan this.region
-		this.region = new HashMap<String, AtlasRegion>();
-		
-		// We vullen de HashMap met de naam en region van elk frame
-		for (int i = 1; i <= 7; i++)
-		{
-			this.region.put(game.getAtlas().findRegion(name + Integer.toString(i)).name,
-							game.getAtlas().findRegion(name + Integer.toString(i)));
-		}
+		this.region = new Array<AtlasRegion>();		
+			
+		this.region = game.getAtlas().findRegions(name);
 		
 		this.driveLeft = new BusDriveLeft(this);
 		this.driveRight = new BusDriveRight(this);
-		this.singleFrame = game.getAtlas().findRegion(name + Integer.toString(3));
+		this.singleFrame = this.region.first();
 		this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
 		this.size = 192f;
 		this.state = this.driveRight;

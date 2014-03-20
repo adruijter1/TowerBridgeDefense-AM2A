@@ -43,7 +43,7 @@ public class TowerBridgeDefense extends Game
 		this.spriteBatch = new SpriteBatch();
 		
 		// Maak een instantie van de TextureAtlas class
-		this.atlas = new TextureAtlas(Gdx.files.internal("data/textureatlas.pack"));
+		this.atlas = new TextureAtlas(Gdx.files.internal("data/textureAtlas.pack"));
 		
 		// Ken aan iedere screen-variabele een instantie toe
 		this.splashScreen = new SplashScreen(this);
