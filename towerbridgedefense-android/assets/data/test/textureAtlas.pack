@@ -1,0 +1,159 @@
+
+textureAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+bus
+  rotate: false
+  xy: 1, 1473
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: 1
+bus
+  rotate: false
+  xy: 1, 991
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: 2
+bus
+  rotate: false
+  xy: 643, 1473
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: 3
+bus
+  rotate: false
+  xy: 1, 509
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: 4
+bus
+  rotate: false
+  xy: 643, 991
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: 5
+bus
+  rotate: false
+  xy: 1285, 1473
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: 6
+bus
+  rotate: false
+  xy: 1, 27
+  size: 640, 480
+  orig: 640, 480
+  offset: 0, 0
+  index: 7
+cab
+  rotate: false
+  xy: 643, 769
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: 1
+cab
+  rotate: false
+  xy: 643, 769
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: 7
+cab
+  rotate: false
+  xy: 1285, 1251
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: 2
+cab
+  rotate: false
+  xy: 1667, 1251
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: 3
+cab
+  rotate: false
+  xy: 643, 547
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: 4
+cab
+  rotate: false
+  xy: 1285, 1029
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: 5
+cab
+  rotate: false
+  xy: 1667, 1029
+  size: 380, 220
+  orig: 380, 220
+  offset: 0, 0
+  index: 6
+swan
+  rotate: false
+  xy: 1025, 809
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 1
+swan
+  rotate: false
+  xy: 643, 365
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 2
+swan
+  rotate: false
+  xy: 1025, 627
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 3
+swan
+  rotate: false
+  xy: 643, 183
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 4
+swan
+  rotate: false
+  xy: 643, 1
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 5
+swan
+  rotate: false
+  xy: 885, 365
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 6
+swan
+  rotate: false
+  xy: 885, 183
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 7
+swan
+  rotate: false
+  xy: 885, 1
+  size: 240, 180
+  orig: 240, 180
+  offset: 0, 0
+  index: 8
