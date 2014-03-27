@@ -94,7 +94,7 @@ public class Cab implements Animation
 		this.driveRight = new CabDriveRight(this);
 		this.singleFrame = this.region.first();
 		this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
-		this.size = 140f;
+		this.size = 100f;
 		this.state = this.driveRight;
 	}
 	

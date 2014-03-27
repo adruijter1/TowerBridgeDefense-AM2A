@@ -5,7 +5,9 @@ import nl.xnagames.towerbridgedefense.screens.SplashScreen;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -17,6 +19,7 @@ public class TowerBridgeDefense extends Game
 	private GameScreen gameScreen;
 	private SpriteBatch spriteBatch;
 	private TextureAtlas atlas;
+	private Music towerBell;
 	
 	// Properties
 	public GameScreen getGameScreen()
@@ -34,6 +37,11 @@ public class TowerBridgeDefense extends Game
 		return this.atlas;
 	}
 	
+	public Music TowerBell()
+	{
+		return this.towerBell;
+	}
+	
 	
 	
 	@Override
@@ -43,7 +51,9 @@ public class TowerBridgeDefense extends Game
 		this.spriteBatch = new SpriteBatch();
 		
 		// Maak een instantie van de TextureAtlas class
-		this.atlas = new TextureAtlas(Gdx.files.internal("data/textureAtlas.pack"));
+		this.atlas = new TextureAtlas(Gdx.files.internal("data/texturepack.atlas"));
+		
+		this.towerBell = Gdx.audio.newMusic(Gdx.files.internal("music/tower_bell_clock.ogg"));
 		
 		// Ken aan iedere screen-variabele een instantie toe
 		this.splashScreen = new SplashScreen(this);
@@ -56,15 +66,15 @@ public class TowerBridgeDefense extends Game
 	@Override
 	public void dispose() 
 	{
-		super.dispose();
 		this.splashScreen.dispose();
+		super.dispose();
+		
 	}
 
 	@Override
 	public void render() {		
-		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
-		
+		//Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); 
 		super.render();
 	}
 

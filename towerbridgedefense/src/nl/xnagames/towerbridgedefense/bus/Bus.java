@@ -1,13 +1,10 @@
 package nl.xnagames.towerbridgedefense.bus;
 
-import java.util.HashMap;
 
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -22,7 +19,7 @@ public class Bus implements Animation
 	private BusDriveLeft driveLeft;
 	private BusDriveRight driveRight;
 	private AnimatedSprite state;
-	private float speed = 3;
+	private float speed = 2;
 	private Vector2 position;
 	// HashMap koppelt een String aan een AtlasRegion
 	private Array<AtlasRegion> region;
@@ -96,8 +93,8 @@ public class Bus implements Animation
 		this.driveRight = new BusDriveRight(this);
 		this.singleFrame = this.region.first();
 		this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
-		this.size = 192f;
-		this.state = this.driveRight;
+		this.size = 120f;
+		this.state = this.getDriveLeft();
 	}
 	
 	// Update method

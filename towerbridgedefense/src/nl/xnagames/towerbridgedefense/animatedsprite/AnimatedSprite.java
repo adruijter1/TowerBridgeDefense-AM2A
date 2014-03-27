@@ -8,8 +8,10 @@ public class AnimatedSprite
 	private Animation animation;
 	private float timer = 0;
 	private int frame = 1;
+	protected float frameSpeed = 2f/60f;
 	
 	// Properties
+	
 	
 	// Constructor
 	public AnimatedSprite(Animation animation)
@@ -21,11 +23,11 @@ public class AnimatedSprite
 	public void update(float delta)
 	{
 		this.timer += delta;
-		if (this.timer > 2f/60f)
+		if (this.timer > this.frameSpeed)
 		{
 			this.frame++;
 			this.timer = 0;
-			if ( this.frame >= 7)
+			if ( this.frame >= this.animation.getRegion().size)
 			{
 				this.frame = 1;
 			}

@@ -3,6 +3,8 @@ package nl.xnagames.towerbridgedefense.screens;
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.bus.Bus;
 import nl.xnagames.towerbridgedefense.cab.Cab;
+import nl.xnagames.towerbridgedefense.entity.Entity;
+import nl.xnagames.towerbridgedefense.swan.Swan;
 import nl.xnagames.towerbridgedefense.transparancy.Transparancy;
 
 
@@ -11,6 +13,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL10;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.math.Vector2;
@@ -29,7 +32,7 @@ public class SplashScreen implements Screen
 	private FreeTypeFontGenerator generator;
 	
 	// Afspelen van een lange muziekfile doe je met een music object
-	private Music towerBell;
+	//private Music towerBell;
 	
 	// Maak een variabele voor het maken van een object van de class transparancy
 	private Transparancy transparancyTB, transparancyD;
@@ -39,7 +42,18 @@ public class SplashScreen implements Screen
 	
 	// Maak een variabele aan die een cabinstantie kan bevatten
 	private Cab cab;
+	
+	// Maak een variabele aan die een swaninstantie kan bevatten
+	private Swan swan;
 		
+	// Maak een variabele aan die een swaninstantie kan bevatten
+	private Entity swan1;
+	
+	// Maak een variabele aan die een swaninstantie kan bevatten
+	private Entity bus1;
+	
+	// Maak een variabele aan die een swaninstantie kan bevatten
+	private Entity medic;
 	// Properties
 	
 	
@@ -50,8 +64,8 @@ public class SplashScreen implements Screen
 		this.game = game;
 		
 		// Maak een music object
-		this.towerBell = Gdx.audio.newMusic(Gdx.files.internal("music/tower_bell_clock.ogg"));
-		this.towerBell.play();
+		
+		
 		
 		// Maak een freetypefontgenerator object
 		this.generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/BradBunR.ttf"));
@@ -76,6 +90,17 @@ public class SplashScreen implements Screen
 		
 		// Maak een instantie aan van de bus
 		this.cab = new Cab(this.game, new Vector2(400f, 200f), "cab");
+		
+		// Maak een instantie aan van de swan
+		this.swan = new Swan(this.game, new Vector2(400f, 400f), "swan", 10f/60f);
+		
+		// Maak een instantie aan van de swan
+		this.swan1 = new Entity(this.game, new Vector2(200f, 400f), "swan", 10f/60f, 100f);
+		
+		// Maak een instantie aan van de bus
+		this.bus1 = new Entity(this.game, new Vector2(200f, 200f), "bus", 2f/60f, 120f);
+		
+		this.medic = new Entity(this.game, new Vector2(300f, 300f), "parachute-medic", 5f/60f, 200f);
 	}
 	
 	
@@ -83,7 +108,8 @@ public class SplashScreen implements Screen
 	public void render(float delta)
 	{
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
-		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+		
 		
 		this.transparancyTB.Update();
 		this.transparancyD.Update();
@@ -96,6 +122,10 @@ public class SplashScreen implements Screen
 		
 		this.bus.update(delta);
 		this.cab.update(delta);
+		this.swan.update(delta);
+		this.swan1.update(delta);
+		this.bus1.update(delta);
+		this.medic.update(delta);
 		
 		// Hier wordt de begin() method aangeroepen van de this.game.getSpriteBatch()
 		// Alle draw methods moeten tussen de begin() en end() method zitten van 
@@ -131,13 +161,23 @@ public class SplashScreen implements Screen
 						  Gdx.graphics.getWidth()/2 - this.font120.getBounds(text120).width/2,
 						  Gdx.graphics.getHeight() * 2/3 - this.font180.getBounds(text180).height * 7/5);
 		
-		// Teken de bus instantie
-		
+		// Teken de bus instantie		
 		this.bus.draw(delta);
 		
-		// Teken de cab instantie
-		
+		// Teken de cab instantie		
 		this.cab.draw(delta);
+		
+		// Teken de swan instantie		
+		this.swan.draw(delta);
+		
+		// Teken de swan instantie		
+		this.swan1.draw(delta);
+		
+		// Teken de swan instantie		
+		this.bus1.draw(delta);
+		
+		// Teken de swan instantie		
+		this.medic.draw(delta);
 		
 		//Hier wordt de end() method aangeroepen van this.game.getSpriteBatch()
 		this.game.getSpriteBatch().end();
@@ -152,7 +192,7 @@ public class SplashScreen implements Screen
 	@Override
 	public void show() 
 	{
-		
+		this.game.TowerBell().play();
 	}
 
 	@Override

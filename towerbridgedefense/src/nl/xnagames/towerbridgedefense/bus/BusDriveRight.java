@@ -45,7 +45,7 @@ public class BusDriveRight extends AnimatedSprite
 	// Update method
 	public void update(float delta)
 	{
-		if ( this.bus.getPosition().x > Gdx.graphics.getWidth() - 300)
+		if ( this.bus.getPosition().x > Gdx.graphics.getWidth() + 400)
 		{
 			this.bus.setState(this.bus.getDriveLeft());
 		}

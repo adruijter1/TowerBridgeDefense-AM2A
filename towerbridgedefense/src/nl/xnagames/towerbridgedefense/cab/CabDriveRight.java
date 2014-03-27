@@ -37,7 +37,7 @@ public class CabDriveRight extends AnimatedSprite
 	// Update method
 	public void update(float delta)
 	{
-		if ( this.cab.getPosition().x > Gdx.graphics.getWidth() - 300)
+		if ( this.cab.getPosition().x > Gdx.graphics.getWidth() + 400)
 		{
 			this.cab.setState(this.cab.getDriveLeft());
 		}

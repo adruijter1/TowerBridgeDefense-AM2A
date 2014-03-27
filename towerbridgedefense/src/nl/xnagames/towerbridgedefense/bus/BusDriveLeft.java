@@ -19,6 +19,7 @@ public class BusDriveLeft extends AnimatedSprite
 		super(bus);
 		this.bus = bus;
 		this.velocity = new Vector2(-bus.getSpeed(), 0f);
+		this.Initialize();
 	}
 	
 	public void Initialize()
@@ -30,23 +31,13 @@ public class BusDriveLeft extends AnimatedSprite
 				region.flip(true, false);
 			}
 		}		
-		
-		/*
-		
-		for (int i = 1; i <= 7; i++)
-		{
-			if (this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).isFlipX())
-			{
-				this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).flip(true, false);
-			}
-		}*/
 	}
 		
 		
 	// Update method
 	public void update(float delta)
 	{
-		if ( this.bus.getPosition().x < 100)
+		if ( this.bus.getPosition().x < -400)
 		{
 			this.bus.setState(this.bus.getDriveRight());
 		}
