@@ -51,7 +51,7 @@ public class TowerBridgeDefense extends Game
 		this.spriteBatch = new SpriteBatch();
 		
 		// Maak een instantie van de TextureAtlas class
-		this.atlas = new TextureAtlas(Gdx.files.internal("data/texturepack.atlas"));
+		this.atlas = new TextureAtlas(Gdx.files.internal("data/texturepack-v4.atlas"));
 		
 		this.towerBell = Gdx.audio.newMusic(Gdx.files.internal("music/tower_bell_clock.ogg"));
 		

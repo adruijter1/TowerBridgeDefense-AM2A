@@ -1,5 +1,5 @@
 
-texturepack.png
+texturepack-v4.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
@@ -325,3 +325,31 @@ swan
   orig: 260, 270
   offset: 0, 0
   index: 8
+puffs
+  rotate: false
+  xy: 3645, 750
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 1
+puffs
+  rotate: false
+  xy: 1731, 201
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 2
+puffs
+  rotate: false
+  xy: 1989, 239
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 3
+puffs
+  rotate: false
+  xy: 2355, 461
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: 4
