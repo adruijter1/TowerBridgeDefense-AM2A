@@ -4,6 +4,7 @@ import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.bus.Bus;
 import nl.xnagames.towerbridgedefense.cab.Cab;
 import nl.xnagames.towerbridgedefense.entity.Entity;
+import nl.xnagames.towerbridgedefense.particleengine.ParticleEngine;
 import nl.xnagames.towerbridgedefense.swan.Swan;
 import nl.xnagames.towerbridgedefense.transparancy.Transparancy;
 
@@ -56,6 +57,9 @@ public class SplashScreen implements Screen
 	private Entity medic;
 	// Properties
 	
+	// Maak een object aan van het gegevenstype particleEngine
+	private ParticleEngine particleEngine;
+	
 	
 	
 	// Constructor
@@ -101,6 +105,8 @@ public class SplashScreen implements Screen
 		this.bus1 = new Entity(this.game, new Vector2(200f, 200f), "bus", 2f/60f, 120f);
 		
 		this.medic = new Entity(this.game, new Vector2(300f, 300f), "parachute-medic", 5f/60f, 200f);
+	
+		this.particleEngine = new ParticleEngine(game, new Vector2(200f, 400f));
 	}
 	
 	
@@ -126,6 +132,10 @@ public class SplashScreen implements Screen
 		this.swan1.update(delta);
 		this.bus1.update(delta);
 		this.medic.update(delta);
+		
+		
+		
+		this.particleEngine.update(delta);
 		
 		// Hier wordt de begin() method aangeroepen van de this.game.getSpriteBatch()
 		// Alle draw methods moeten tussen de begin() en end() method zitten van 
@@ -178,6 +188,8 @@ public class SplashScreen implements Screen
 		
 		// Teken de swan instantie		
 		this.medic.draw(delta);
+		
+		this.particleEngine.draw(delta);
 		
 		//Hier wordt de end() method aangeroepen van this.game.getSpriteBatch()
 		this.game.getSpriteBatch().end();
