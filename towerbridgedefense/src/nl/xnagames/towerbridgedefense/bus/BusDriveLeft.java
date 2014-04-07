@@ -42,6 +42,9 @@ public class BusDriveLeft extends AnimatedSprite
 			this.bus.setState(this.bus.getDriveRight());
 		}
 		this.bus.setPosition(this.bus.getPosition().add(this.velocity));
+		this.bus.getExhaust().setEmitterPosition(new Vector2(this.bus.getPosition().x + 9f,
+															 this.bus.getPosition().y - 100f));
+		this.bus.getExhaust().update(delta);
 		super.update(delta);
 	}
 			
@@ -49,5 +52,6 @@ public class BusDriveLeft extends AnimatedSprite
 	public void draw(float delta)
 	{
 		super.draw(delta);
+		this.bus.getExhaust().draw(delta);
 	}
 }

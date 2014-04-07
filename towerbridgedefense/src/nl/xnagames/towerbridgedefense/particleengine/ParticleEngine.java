@@ -18,10 +18,17 @@ public class ParticleEngine
 	private Vector2 emitterPosition;
 	private ArrayList<Particle> particles;
 	private float speed = 0.3f;
-	private float timer = 0f;
 		
 	
 	// Properties
+	public Vector2 getEmitterPosition()
+	{
+		return this.emitterPosition;
+	}
+	public void setEmitterPosition(Vector2 emitterPosition)
+	{
+		this.emitterPosition = emitterPosition;
+	}
 	
 	
 	// Constructor 
@@ -29,37 +36,23 @@ public class ParticleEngine
 	{
 		this.game = game;
 		this.textures = game.getAtlas().findRegions("puffs");
-		this.emitterPosition = emitterPosition;
-		this.particles = new ArrayList<Particle>();
 		
+		this.emitterPosition = new Vector2(emitterPosition.x, emitterPosition.y);
 		
+		this.particles = new ArrayList<Particle>();		
 	}
 	
 	
 	// Update
 	public void update(float delta)
 	{
-		/*
+		
 		int amountOfParticles = 1;
 		
 		for (int i = 0; i < amountOfParticles; i++)
 		{
-			this.particles.add(this.generateParticles());
-		}*/
-		this.timer += 1f/60f;
-		if ( this.timer > 1)
-		{
-			this.particles.add(new Particle(this.game,
-				   			   this.textures.get(0),
-				   			   new Vector2(100f,200f),
-				   			   new Vector2(-1f,0f),
-				   			   2f ,
-				   			   0.014f,
-				   			   1f,
-				   			   580));
-			this.timer = 0f;
-		}
-		
+			this.particles.add(this.generateParticle());
+		}			
 		
 		if ( this.particles.size() != 0)
 		{
@@ -67,10 +60,7 @@ public class ParticleEngine
 			{
 				particle.update(delta);
 			}
-			
-			//particles.get(1).update(delta);
-			//particles.get(0).update(delta);
-			
+						
 			for (Particle particle : this.particles)
 			{
 				if ( particle.getTimeToLive() <= 0 )
@@ -79,32 +69,28 @@ public class ParticleEngine
 					break;
 				}
 			}
-		}		
+		}
+		this.emitterPosition.add(new Vector2(2f, 0f));
 	}
 	
-	private Particle generateParticles()
+	private Particle generateParticle()
 	{
-		/*
-		Gdx.app.log("tes", this.emitterPosition.toString());
-		return new Particle(this.game,
-   				this.textures.get(MathUtils.random(0, 3)),
-   				this.emitterPosition,
-   				new Vector2(this.speed * (MathUtils.random() * 2 - 1),
-   						    this.speed * (MathUtils.random()* 2 -1)),
-   				2f ,
-   				0.014f,
-   				1f,
-   				60);*/
-		Gdx.app.log("tes", this.emitterPosition.toString());
-		return new Particle(this.game,
-   				this.textures.get(3),
-   				this.emitterPosition,
-   				new Vector2(0.01f,0.01f),
-   				2f ,
-   				0.014f,
-   				1f,
-   				60);
-		
+		return new Particle(   this.game,
+							   // Afwisselen van de AtlasRegions
+				   			   this.textures.get(MathUtils.random(0,3)),
+				   			   // Startpositie van de particles
+				   			   this.emitterPosition,
+				   			   // Snelheid waarmee de particles zich voortbewegen
+				   			   new Vector2(this.speed * (MathUtils.random() * 2f - 1f),
+				   					   	   this.speed * (MathUtils.random() * 2f - 1f)),
+				   			   // Starthoek van de afzonderlijke AtlasRegions
+				   			   0f ,
+				   			   // Draaien van de AtlasRegions
+				   			   3f * (float)MathUtils.PI/2,
+				   			   // Schaal/grootte van de AtlasRegions
+				   			   0.1f,
+				   			   // Tijd dat een particle leeft
+				   			   40);		
 	}
 	
 	

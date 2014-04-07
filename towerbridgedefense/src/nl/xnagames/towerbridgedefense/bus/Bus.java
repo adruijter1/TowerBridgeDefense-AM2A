@@ -4,6 +4,7 @@ package nl.xnagames.towerbridgedefense.bus;
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
+import nl.xnagames.towerbridgedefense.particleengine.ParticleEngine;
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -23,6 +24,9 @@ public class Bus implements Animation
 	private Vector2 position;
 	// HashMap koppelt een String aan een AtlasRegion
 	private Array<AtlasRegion> region;
+	private ParticleEngine exhaust;
+	
+	
 	
 	// Name van het plaatje op de TextureAtlas
 	private String name;
@@ -74,6 +78,15 @@ public class Bus implements Animation
 	{
 		return this.region;
 	}
+	public ParticleEngine getExhaust()
+	{
+		return this.exhaust;
+	}
+	public void setParticleEngine(ParticleEngine exhaust)
+	{
+		this.exhaust = exhaust;
+	}
+	
 	
 	
 	
@@ -84,6 +97,8 @@ public class Bus implements Animation
 		this.position = position;
 		this.name = name;
 		
+		this.exhaust = new ParticleEngine(game, this.position);
+		
 		// We maken een instantie van de HashMap die we koppelen aan this.region
 		this.region = new Array<AtlasRegion>();		
 			
@@ -93,7 +108,7 @@ public class Bus implements Animation
 		this.driveRight = new BusDriveRight(this);
 		this.singleFrame = this.region.first();
 		this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
-		this.size = 120f;
+		this.size = 120f;		
 		this.state = this.getDriveLeft();
 	}
 	

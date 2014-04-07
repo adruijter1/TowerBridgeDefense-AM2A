@@ -31,15 +31,7 @@ public class BusDriveRight extends AnimatedSprite
 			{
 				region.flip(true, false);
 			}
-		}		
-		/*
-		for (int i = 1; i <= 7; i++)
-		{
-			if (!this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).isFlipX())
-			{
-				this.bus.getRegion().get(this.bus.getName() + Integer.toString(i)).flip(true, false);
-			}
-		}*/
+		}
 	}		
 		
 	// Update method
@@ -50,6 +42,9 @@ public class BusDriveRight extends AnimatedSprite
 			this.bus.setState(this.bus.getDriveLeft());
 		}
 		this.bus.setPosition(this.bus.getPosition().add(this.velocity));
+		this.bus.getExhaust().setEmitterPosition(new Vector2(this.bus.getPosition().x - 108f,
+															 this.bus.getPosition().y - 100f));
+		this.bus.getExhaust().update(delta);
 		super.update(delta);
 	}
 			
@@ -57,6 +52,7 @@ public class BusDriveRight extends AnimatedSprite
 	public void draw(float delta)
 	{
 		super.draw(delta);
+		this.bus.getExhaust().draw(delta);
 	}
 
 }

@@ -106,7 +106,7 @@ public class SplashScreen implements Screen
 		
 		this.medic = new Entity(this.game, new Vector2(300f, 300f), "parachute-medic", 5f/60f, 200f);
 	
-		this.particleEngine = new ParticleEngine(game, new Vector2(200f, 400f));
+		this.particleEngine = new ParticleEngine(game, new Vector2(200f, 300f));
 	}
 	
 	

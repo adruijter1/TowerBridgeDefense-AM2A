@@ -2,6 +2,7 @@ package nl.xnagames.towerbridgedefense.particleengine;
 
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
@@ -35,6 +36,8 @@ public class Particle
 		// Belangrijke wijziging!!!
 		this.position = new Vector2(position.x, position.y);
 		
+		//this.position = position;
+		
 		this.velocity = velocity;
 		this.angle = angle;
 		this.angularVelocity = angularVelocity;
@@ -56,6 +59,8 @@ public class Particle
 	// Draw
 	public void draw(float delta)
 	{
+		Color color = batch.getColor();
+		batch.setColor(1f, 1f, 1f, 0.1f);
 		batch.draw(this.region,
 				   this.position.x, 
 				   this.position.y, 
@@ -66,5 +71,6 @@ public class Particle
 				   this.size,
 				   this.size,
 				   this.angle);
+		batch.setColor(color);
 	}
 }
