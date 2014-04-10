@@ -5,6 +5,7 @@ import java.util.HashMap;
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
+import nl.xnagames.towerbridgedefense.particleengine.ParticleEngine;
 
 
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
@@ -24,11 +25,16 @@ public class Cab implements Animation
 	private float speed = 3;
 	private Vector2 position;
 	private Array<AtlasRegion> region;
+	private ParticleEngine exhaust;
 	
 	// Name bevat de naam van het plaatje op de TextureAtlas
 	private String name;
 	
 	// Properties
+	public ParticleEngine getExhaust()
+	{
+		return this.exhaust;
+	}
 	public String getName()
 	{
 		return this.name;
@@ -84,6 +90,8 @@ public class Cab implements Animation
 		this.game = game;
 		this.position = position;
 		this.name = name;
+		
+		this.exhaust = new ParticleEngine(game, this.position);
 		
 		// We maken een instantie van de HashMap die we koppelen aan this.region
 		this.region = new Array<AtlasRegion>();

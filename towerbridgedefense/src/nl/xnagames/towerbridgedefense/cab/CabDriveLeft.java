@@ -10,6 +10,7 @@ public class CabDriveLeft extends AnimatedSprite
 	// Fields
 	private Cab cab;
 	private Vector2 velocity;
+	private Vector2 offset;
 	
 	// Properties
 		
@@ -19,6 +20,7 @@ public class CabDriveLeft extends AnimatedSprite
 		super(cab);
 		this.cab = cab;
 		this.velocity = new Vector2(-cab.getSpeed(), 0f);
+		this.offset = new Vector2(50f, -100f);
 		this.Initialize();
 	}
 	
@@ -37,11 +39,14 @@ public class CabDriveLeft extends AnimatedSprite
 	// Update method
 	public void update(float delta)
 	{
-		if ( this.cab.getPosition().x < -400)
+		if ( this.cab.getPosition().x < 100)
 		{
 			this.cab.setState(this.cab.getDriveRight());
 		}
 		this.cab.setPosition(this.cab.getPosition().add(this.velocity));
+		this.cab.getExhaust().setEmitterPosition(new Vector2(this.cab.getPosition().x + this.offset.x,
+															 this.cab.getPosition().y + this.offset.y));
+		this.cab.getExhaust().update(delta);
 		super.update(delta);
 	}
 			
@@ -49,5 +54,6 @@ public class CabDriveLeft extends AnimatedSprite
 	public void draw(float delta)
 	{
 		super.draw(delta);
+		this.cab.getExhaust().draw(delta);
 	}
 }
