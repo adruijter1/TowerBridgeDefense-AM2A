@@ -1,6 +1,7 @@
 package nl.xnagames.towerbridgedefense.screens;
 
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
+import nl.xnagames.towerbridgedefense.beanman.Beanman;
 import nl.xnagames.towerbridgedefense.bus.Bus;
 import nl.xnagames.towerbridgedefense.cab.Cab;
 import nl.xnagames.towerbridgedefense.entity.Entity;
@@ -60,6 +61,9 @@ public class SplashScreen implements Screen
 	// Maak een object aan van het gegevenstype particleEngine
 	private ParticleEngine particleEngine;
 	
+	// Beanman object
+	private Beanman beanman;
+	
 	
 	
 	// Constructor
@@ -107,6 +111,9 @@ public class SplashScreen implements Screen
 		this.medic = new Entity(this.game, new Vector2(300f, 300f), "parachute-medic", 5f/60f, 200f);
 	
 		this.particleEngine = new ParticleEngine(game, new Vector2(200f, 300f));
+		
+		// Maak een object van de beanman
+		this.beanman = new Beanman(game, new Vector2(100f, 400f), "beanman");
 	}
 	
 	
@@ -132,6 +139,7 @@ public class SplashScreen implements Screen
 		this.swan1.update(delta);
 		this.bus1.update(delta);
 		this.medic.update(delta);
+		this.beanman.update(delta);
 		
 		
 		
@@ -190,6 +198,9 @@ public class SplashScreen implements Screen
 		this.medic.draw(delta);
 		
 		this.particleEngine.draw(delta);
+		
+		// Teken beanman
+		this.beanman.draw(delta);
 		
 		//Hier wordt de end() method aangeroepen van this.game.getSpriteBatch()
 		this.game.getSpriteBatch().end();
