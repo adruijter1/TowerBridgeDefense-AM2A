@@ -20,7 +20,8 @@ public class Beanman implements Animation
 		private Array<AtlasRegion> region;
 		private BeanmanIdleRight idleRight;
 		private BeanmanWalkRight walkRight;
-		
+		private BeanmanWalkLeft walkLeft;
+		private BeanmanIdleLeft idleLeft;
 		// Name van het plaatje op de TextureAtlas
 		private String name;
 		
@@ -63,11 +64,23 @@ public class Beanman implements Animation
 		}
 		public BeanmanWalkRight getWalkRight()
 		{
+			this.walkRight.Initialize();
 			return this.walkRight;
 		}
 		public BeanmanIdleRight getIdleRight()
 		{
+			this.idleRight.Initialize();
 			return this.idleRight;
+		}
+		public BeanmanIdleLeft getIdleLeft()
+		{
+			this.idleLeft.Initialize();
+			return this.idleLeft;
+		}
+		public BeanmanWalkLeft getWalkLeft()
+		{
+			this.walkLeft.Initialize();
+			return this.walkLeft;
 		}
 		
 		
@@ -88,9 +101,11 @@ public class Beanman implements Animation
 			
 			this.singleFrame = this.region.first();
 			this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
-			this.size = 150f;
+			this.size = 100f;
 			this.idleRight = new BeanmanIdleRight(this);
 			this.walkRight = new BeanmanWalkRight(this);
+			this.idleLeft = new BeanmanIdleLeft(this);
+			this.walkLeft = new BeanmanWalkLeft(this);
 			this.state = this.idleRight;
 		}
 		

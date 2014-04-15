@@ -8,7 +8,7 @@ import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 
-public class BeanmanIdleRight extends AnimatedSprite
+public class BeanmanIdleLeft extends AnimatedSprite
 {
 	// Fields
 		private Beanman beanman;
@@ -17,7 +17,7 @@ public class BeanmanIdleRight extends AnimatedSprite
 		// Properties
 			
 		// Constructor
-		public BeanmanIdleRight(Beanman beanman)
+		public BeanmanIdleLeft(Beanman beanman)
 		{
 			super(beanman);
 			this.beanman = beanman;
@@ -30,7 +30,7 @@ public class BeanmanIdleRight extends AnimatedSprite
 			this.frameSpeed = 1f/120f;
 			for ( AtlasRegion region : this.beanman.getRegion())
 			{
-				if (region.isFlipX())
+				if (!region.isFlipX())
 				{
 					region.flip(true, false);
 				}
@@ -40,15 +40,14 @@ public class BeanmanIdleRight extends AnimatedSprite
 		// Update method
 		public void update(float delta)
 		{
+			if (Gdx.input.isKeyPressed(Keys.LEFT))
+			{
+				this.beanman.setState(this.beanman.getWalkLeft());
+			}
 			if (Gdx.input.isKeyPressed(Keys.RIGHT))
 			{
 				this.beanman.setState(this.beanman.getWalkRight());
 			}
-			else if (Gdx.input.isKeyPressed(Keys.LEFT))
-			{
-				this.beanman.setState(this.beanman.getWalkLeft());
-			}
-			
 			//super.update(delta);
 		}
 				
