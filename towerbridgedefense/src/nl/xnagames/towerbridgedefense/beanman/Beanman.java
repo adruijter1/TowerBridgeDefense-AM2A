@@ -22,6 +22,7 @@ public class Beanman implements Animation
 		private BeanmanWalkRight walkRight;
 		private BeanmanWalkLeft walkLeft;
 		private BeanmanIdleLeft idleLeft;
+		private BeanmanJumpRight jumpRight;
 		// Name van het plaatje op de TextureAtlas
 		private String name;
 		
@@ -82,6 +83,11 @@ public class Beanman implements Animation
 			this.walkLeft.Initialize();
 			return this.walkLeft;
 		}
+		public BeanmanJumpRight getJumpRight()
+		{
+			this.jumpRight.Initialize();
+			return this.jumpRight;		
+		}
 		
 		
 		// Constructor
@@ -106,7 +112,8 @@ public class Beanman implements Animation
 			this.walkRight = new BeanmanWalkRight(this);
 			this.idleLeft = new BeanmanIdleLeft(this);
 			this.walkLeft = new BeanmanWalkLeft(this);
-			this.state = this.idleRight;
+			this.jumpRight = new BeanmanJumpRight(this);
+			this.state = this.getIdleRight();
 		}
 		
 		// Update method

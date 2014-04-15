@@ -43,6 +43,10 @@ public class BeanmanWalkRight extends AnimatedSprite
 		{
 			this.beanman.setState(this.beanman.getIdleRight());
 		}
+		else if (Gdx.input.isKeyPressed(Keys.SPACE))
+		{
+			this.beanman.setState(this.beanman.getJumpRight());   
+		}
 		this.beanman.setPosition(this.beanman.getPosition().add(this.velocity));
 		super.update(delta);
 	}
