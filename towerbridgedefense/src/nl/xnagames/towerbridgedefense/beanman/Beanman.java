@@ -15,7 +15,7 @@ public class Beanman implements Animation
 		private float scaleFactor;
 		private float size;
 		private AnimatedSprite state;
-		private float speed = 3f;
+		private float speed = 5f;
 		private Vector2 position;
 		private Array<AtlasRegion> region;
 		private BeanmanIdleRight idleRight;
@@ -112,7 +112,7 @@ public class Beanman implements Animation
 			this.walkRight = new BeanmanWalkRight(this);
 			this.idleLeft = new BeanmanIdleLeft(this);
 			this.walkLeft = new BeanmanWalkLeft(this);
-			this.jumpRight = new BeanmanJumpRight(this);
+			this.jumpRight = new BeanmanJumpRight(this, 150, 200);
 			this.state = this.getIdleRight();
 		}
 		

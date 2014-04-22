@@ -113,14 +113,14 @@ public class SplashScreen implements Screen
 		this.particleEngine = new ParticleEngine(game, new Vector2(200f, 300f));
 		
 		// Maak een object van de beanman
-		this.beanman = new Beanman(game, new Vector2(100f, 400f), "beanman");
+		this.beanman = new Beanman(game, new Vector2(100f, 100f), "beanman");
 	}
 	
 	
 	@Override
 	public void render(float delta)
 	{
-		Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
+		Gdx.gl.glClearColor(0.06f, 0.06f, 0.06f, 1f);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		
 		
