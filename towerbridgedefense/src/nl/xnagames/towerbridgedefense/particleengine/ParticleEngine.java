@@ -47,7 +47,7 @@ public class ParticleEngine
 	public void update(float delta)
 	{
 		
-		int amountOfParticles = 1;
+		int amountOfParticles = 2;
 		
 		for (int i = 0; i < amountOfParticles; i++)
 		{
@@ -56,19 +56,15 @@ public class ParticleEngine
 		
 		if ( this.particles.size() != 0)
 		{
-			for (Particle particle : this.particles)
-			{
-				particle.update(delta);
-			}
-						
-			for (Particle particle : this.particles)
-			{
-				if ( particle.getTimeToLive() <= 0 )
-				{
-					this.particles.remove(particle);
-					break;
-				}
-			}
+			for (int particle = 0; particle < this.particles.size(); particle++)
+		    {
+		        this.particles.get(particle).update(delta);
+		        if (particles.get(particle).getTimeToLive() <= 0)
+		        {
+		            this.particles.remove(particle);
+		            particle--;
+		        }
+		    }
 		}
 		this.emitterPosition.add(new Vector2(2f, 0f));
 	}
