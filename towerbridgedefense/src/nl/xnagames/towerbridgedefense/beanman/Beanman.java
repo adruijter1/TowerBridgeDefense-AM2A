@@ -23,6 +23,9 @@ public class Beanman implements Animation
 		private BeanmanWalkLeft walkLeft;
 		private BeanmanIdleLeft idleLeft;
 		private BeanmanJumpRight jumpRight;
+		private BeanmanJumpLeft jumpLeft;
+		private BeanmanIdleJumpRight idleJumpRight;
+		private BeanmanIdleJumpLeft idleJumpLeft;
 		// Name van het plaatje op de TextureAtlas
 		private String name;
 		
@@ -88,7 +91,21 @@ public class Beanman implements Animation
 			this.jumpRight.Initialize();
 			return this.jumpRight;		
 		}
-		
+		public BeanmanJumpLeft getJumpLeft()
+		{
+			this.jumpLeft.Initialize();
+			return this.jumpLeft;
+		}
+		public BeanmanIdleJumpRight getIdleJumpRight()
+		{
+			this.idleJumpRight.Initialize();
+			return this.idleJumpRight;
+		}
+		public BeanmanIdleJumpLeft getIdleJumpLeft()
+		{
+			this.idleJumpLeft.Initialize();
+			return this.idleJumpLeft;
+		}		
 		
 		// Constructor
 		public Beanman(TowerBridgeDefense game, Vector2 position, String name)
@@ -113,6 +130,9 @@ public class Beanman implements Animation
 			this.idleLeft = new BeanmanIdleLeft(this);
 			this.walkLeft = new BeanmanWalkLeft(this);
 			this.jumpRight = new BeanmanJumpRight(this, 150, 200);
+			this.jumpLeft = new BeanmanJumpLeft(this, -150, 200);
+			this.idleJumpRight = new BeanmanIdleJumpRight(this, 150, 200);
+			this.idleJumpLeft = new BeanmanIdleJumpLeft(this, 150, 200);
 			this.state = this.getIdleRight();
 		}
 		
