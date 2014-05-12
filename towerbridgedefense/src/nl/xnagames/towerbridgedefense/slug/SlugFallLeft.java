@@ -1,13 +1,13 @@
-package nl.xnagames.towerbridgedefense.beanman;
+package nl.xnagames.towerbridgedefense.slug;
 
 import com.badlogic.gdx.math.Vector2;
 
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 
-public class BeanmanJumpLeft extends AnimatedSprite
+public class SlugFallLeft extends AnimatedSprite
 {
 	// Fields
-	private Beanman beanman;
+	private Slug slug;
 	private int init_h, init_k, h, k;
 	private float start_x, start_y, a;
 	
@@ -16,11 +16,10 @@ public class BeanmanJumpLeft extends AnimatedSprite
 	// Constructor
 	// h geeft de x-waarde van de symmetrie-as en k is de hoogte die bereikt wordt
 	// voor x = h.
-	public BeanmanJumpLeft(Beanman beanman, int h, int k)
+	public SlugFallLeft(Slug slug, int h, int k)
 	{
-		super(beanman);
-		this.beanman = beanman;
-		this.frameSpeed = 1f/120f;
+		super(slug);
+		this.slug = slug;
 		this.init_h = h;
 		this.init_k = k;		
 		this.Initialize();
@@ -30,8 +29,9 @@ public class BeanmanJumpLeft extends AnimatedSprite
 	// Initialize
 	public void Initialize()
 	{
-		this.start_x = beanman.getPosition().x;
-		this.start_y = beanman.getPosition().y;
+		this.frameSpeed = 2f/60f;
+		this.start_x = slug.getPosition().x;
+		this.start_y = slug.getPosition().y;
 		this.h = (int)(this.start_x + this.init_h);
 		this.k = (int)(this.start_y + this.init_k);
 		this.calculateA();
@@ -45,17 +45,17 @@ public class BeanmanJumpLeft extends AnimatedSprite
 	// Update
 	public void update(float delta)
 	{		
-		float x = this.beanman.getPosition().x - this.beanman.getSpeed();
+		float x = this.slug.getPosition().x - this.slug.getSpeed();
 		float y = this.a * (float)Math.pow((x - this.h), 2d) + this.k;
 		
 		if ( y < this.start_y)
 		{
-			this.beanman.setPosition(new Vector2(x, this.start_y));		
-			this.beanman.setState(this.beanman.getIdleLeft());
+			this.slug.setPosition(new Vector2(x, this.start_y));		
+			this.slug.setState(this.slug.getWalkLeft());
 		}
 		else
 		{	
-			this.beanman.setPosition(new Vector2(x, y));	
+			this.slug.setPosition(new Vector2(x, y));	
 		}
 		super.update(delta);
 	}

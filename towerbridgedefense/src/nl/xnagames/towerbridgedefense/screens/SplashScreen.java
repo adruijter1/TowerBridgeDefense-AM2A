@@ -8,6 +8,7 @@ import nl.xnagames.towerbridgedefense.entity.Entity;
 import nl.xnagames.towerbridgedefense.particleengine.ParticleEngine;
 import nl.xnagames.towerbridgedefense.swan.Swan;
 import nl.xnagames.towerbridgedefense.transparancy.Transparancy;
+import nl.xnagames.towerbridgedefense.slug.Slug;
 
 
 import com.badlogic.gdx.Gdx;
@@ -64,6 +65,9 @@ public class SplashScreen implements Screen
 	// Beanman object
 	private Beanman beanman;
 	
+	// Slug object
+	private Slug slug;
+	
 	
 	
 	// Constructor
@@ -114,6 +118,9 @@ public class SplashScreen implements Screen
 		
 		// Maak een object van de beanman
 		this.beanman = new Beanman(game, new Vector2(100f, 100f), "beanman");
+		
+		// Maak een object van de slug
+		this.slug = new Slug(this.game, new Vector2(100f, 150f), "slug");
 	}
 	
 	
@@ -140,6 +147,7 @@ public class SplashScreen implements Screen
 		this.bus1.update(delta);
 		this.medic.update(delta);
 		this.beanman.update(delta);
+		this.slug.update(delta);
 		
 		
 		
@@ -201,6 +209,9 @@ public class SplashScreen implements Screen
 		
 		// Teken beanman
 		this.beanman.draw(delta);
+		
+		// Teken de slug
+		this.slug.draw(delta);
 		
 		//Hier wordt de end() method aangeroepen van this.game.getSpriteBatch()
 		this.game.getSpriteBatch().end();
