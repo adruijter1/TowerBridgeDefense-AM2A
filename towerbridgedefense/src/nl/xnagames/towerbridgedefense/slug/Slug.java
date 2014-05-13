@@ -4,6 +4,7 @@ import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
 
@@ -58,6 +59,10 @@ public class Slug implements Animation
 		{
 			this.state = state;
 		}
+		public AnimatedSprite getState()
+		{
+			return this.state;
+		}
 		public Array<AtlasRegion> getRegion()
 		{
 			return this.region;
@@ -84,6 +89,7 @@ public class Slug implements Animation
 		}
 		
 		
+		
 		// Constructor
 		public Slug(TowerBridgeDefense game, Vector2 position, String name)
 		{
@@ -104,9 +110,9 @@ public class Slug implements Animation
 			this.size = 50f;
 			this.walkRight = new SlugWalkRight(this);
 			this.walkLeft = new SlugWalkLeft(this);
-			this.fallRight = new SlugFallRight(this, 150, 200);
-			this.fallLeft = new SlugFallLeft(this, -150, 200);
-			this.state = this.getWalkRight();
+			this.fallRight = new SlugFallRight(this, 40, 10);
+			this.fallLeft = new SlugFallLeft(this, -40, 10);
+			this.state = this.getFallLeft();
 		}
 		
 		// Update method

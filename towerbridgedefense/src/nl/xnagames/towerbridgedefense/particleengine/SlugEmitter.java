@@ -14,26 +14,38 @@ public class SlugEmitter
 	private TowerBridgeDefense game;
 	private ArrayList<Slug> slugs;
 	private float timer = 0f;
+	private Vector2 position;
+	private float random;
+	private int emitLeftOrRight = 0;
 	
 	// Constructor	
 	public SlugEmitter(TowerBridgeDefense game, Vector2 position)
 	{
 		this.game = game;
-		
+		this.position = position;
 		this.slugs = new ArrayList<Slug>();
 	}
 	
 	// update method
 	public void update(float delta)
 	{
-		if ( this.timer > 120f)
+		if ( this.timer > this.random)
 		{
 			this.slugs.add(this.generateSlug());
 			this.timer = 0f;
+			this.random = 4 + (float)MathUtils.random(-3f,3f);
 		}
 		else
 		{
 			this.timer += 1f/60f;
+		}
+		
+		if (this.slugs.size() != 0)
+		{
+			for (Slug slug : this.slugs)
+			{
+				slug.update(delta);
+			}
 		}
 	}
 	
@@ -51,6 +63,17 @@ public class SlugEmitter
 	
 	private Slug generateSlug()
 	{
-		return new Slug(this.game, new Vector2(320f, 240f), "slug");
+		Slug slug = new Slug(this.game, this.position, "slug");		
+		switch (this.emitLeftOrRight)
+		{
+			case 0:
+				slug.setState(slug.getFallLeft());
+				break;
+			case 1:
+				slug.setState(slug.getFallRight());
+				break;
+		}
+		this.emitLeftOrRight = MathUtils.random(1);
+		return slug;
 	}
 }

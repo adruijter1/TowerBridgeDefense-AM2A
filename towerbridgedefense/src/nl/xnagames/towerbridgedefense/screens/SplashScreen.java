@@ -127,7 +127,7 @@ public class SplashScreen implements Screen
 		this.slug = new Slug(this.game, new Vector2(100f, 150f), "slug");
 		
 		// Maak een slugEmitter object aan
-		this.slugEmitter = new SlugEmitter(this.game, new Vector2(320f, 240f));
+		this.slugEmitter = new SlugEmitter(this.game, new Vector2(500f, 600f));
 	}
 	
 	

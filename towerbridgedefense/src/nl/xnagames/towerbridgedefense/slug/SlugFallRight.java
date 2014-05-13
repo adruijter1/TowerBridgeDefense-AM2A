@@ -1,5 +1,6 @@
 package nl.xnagames.towerbridgedefense.slug;
 
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
@@ -29,6 +30,13 @@ public class SlugFallRight extends AnimatedSprite
 	// Initialize
 	public void Initialize()
 	{
+		for ( AtlasRegion region : this.slug.getRegion())
+		{
+			if (region.isFlipX())
+			{
+				region.flip(true, false);
+			}
+		}
 		this.frameSpeed = 2f/60f;
 		this.start_x = slug.getPosition().x;
 		this.start_y = slug.getPosition().y;
@@ -46,12 +54,12 @@ public class SlugFallRight extends AnimatedSprite
 	public void update(float delta)
 	{
 		
-		float x = this.slug.getPosition().x + this.slug.getSpeed();
+		float x = this.slug.getPosition().x + 2 * this.slug.getSpeed();
 		float y = this.a * (float)Math.pow((x - this.h), 2d) + this.k;
 		
-		if ( y < this.start_y)
+		if ( y < 100f)
 		{
-			this.slug.setPosition(new Vector2(x, this.start_y));		
+			this.slug.setPosition(new Vector2(x, 100f));		
 			this.slug.setState(this.slug.getWalkRight());
 		}
 		else
