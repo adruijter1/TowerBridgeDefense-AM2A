@@ -4,6 +4,7 @@ import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 
@@ -48,6 +49,8 @@ public class BeanmanWalkRight extends AnimatedSprite
 			this.beanman.setState(this.beanman.getJumpRight());   
 		}
 		this.beanman.setPosition(this.beanman.getPosition().add(this.velocity));
+		this.beanman.getCam().translate(this.velocity);
+		this.beanman.getCam().update();
 		super.update(delta);
 	}
 			

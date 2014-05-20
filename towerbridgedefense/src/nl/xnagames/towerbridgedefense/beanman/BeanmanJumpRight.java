@@ -49,6 +49,9 @@ public class BeanmanJumpRight extends AnimatedSprite
 		float x = this.beanman.getPosition().x + this.beanman.getSpeed();
 		float y = this.a * (float)Math.pow((x - this.h), 2d) + this.k;
 		
+		this.beanman.getCam().translate(new Vector2(this.beanman.getSpeed(), 0f));
+		this.beanman.getCam().update();
+		
 		if ( y < this.start_y)
 		{
 			this.beanman.setPosition(new Vector2(x, this.start_y));		

@@ -3,6 +3,9 @@ package nl.xnagames.towerbridgedefense.beanman;
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
+
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
@@ -28,6 +31,7 @@ public class Beanman implements Animation
 		private BeanmanIdleJumpLeft idleJumpLeft;
 		// Name van het plaatje op de TextureAtlas
 		private String name;
+		private OrthographicCamera cam;
 		
 		// Properties
 		public String getName()
@@ -105,16 +109,23 @@ public class Beanman implements Animation
 		{
 			this.idleJumpLeft.Initialize();
 			return this.idleJumpLeft;
-		}		
+		}
+		public OrthographicCamera getCam()
+		{
+			return this.cam;
+		}
+		public void setCam(OrthographicCamera cam)
+		{
+			this.cam = cam;
+		}
 		
 		// Constructor
-		public Beanman(TowerBridgeDefense game, Vector2 position, String name)
+		public Beanman(TowerBridgeDefense game, Vector2 position, String name, OrthographicCamera cam)
 		{
 			this.game = game;
 			this.position = position;
 			this.name = name;
-			
-			
+			this.cam = cam;	
 			
 			// We maken een instantie van de HashMap die we koppelen aan this.region
 			this.region = new Array<AtlasRegion>();		
@@ -124,7 +135,7 @@ public class Beanman implements Animation
 			
 			this.singleFrame = this.region.first();
 			this.scaleFactor = (float)this.singleFrame.getRegionHeight()/(float)this.singleFrame.getRegionWidth();
-			this.size = 100f;
+			this.size = 140f;
 			this.idleRight = new BeanmanIdleRight(this);
 			this.walkRight = new BeanmanWalkRight(this);
 			this.idleLeft = new BeanmanIdleLeft(this);
@@ -140,6 +151,7 @@ public class Beanman implements Animation
 		public void update(float delta)
 		{
 			this.state.update(delta);
+			Gdx.app.debug("pos", this.position.toString());
 		}
 		
 		// Draw method

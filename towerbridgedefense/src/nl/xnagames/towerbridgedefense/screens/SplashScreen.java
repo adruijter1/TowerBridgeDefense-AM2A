@@ -121,7 +121,7 @@ public class SplashScreen implements Screen
 		this.particleEngine = new ParticleEngine(game, new Vector2(200f, 300f));
 		
 		// Maak een object van de beanman
-		this.beanman = new Beanman(game, new Vector2(100f, 100f), "beanman");
+		this.beanman = new Beanman(game, new Vector2(100f, 100f), "beanman", null);
 		
 		// Maak een object van de slug
 		this.slug = new Slug(this.game, new Vector2(100f, 150f), "slug");
