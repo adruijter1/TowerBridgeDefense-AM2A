@@ -151,7 +151,6 @@ public class Beanman implements Animation
 		public void update(float delta)
 		{
 			this.state.update(delta);
-			Gdx.app.debug("pos", this.position.toString());
 		}
 		
 		// Draw method

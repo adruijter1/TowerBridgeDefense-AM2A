@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
 public class GameScreen implements Screen
@@ -21,8 +22,11 @@ public class GameScreen implements Screen
 	private Texture texture;
 	private TextureRegion textureRegion;
 	private OrthographicCamera cam;
-	private float ratio, yzoom = 1080;
-	private Beanman beanman;
+	private float canvasRatio, yzoom = 1080;
+	private Beanman beanman;	
+	private Rectangle glViewport;
+	private float canvasWidth;
+	private float canvasHeight;
 	
 	
 	// Properties
@@ -36,11 +40,23 @@ public class GameScreen implements Screen
 		this.texture = new Texture(Gdx.files.internal("data/achtergrond.png"));
 		this.textureRegion = new TextureRegion(this.texture,0,0, 1920, 1080);
 		this.background = new Image(this.game, Vector2.Zero, this.textureRegion);
-		this.ratio = (float)Gdx.graphics.getWidth()/(float)Gdx.graphics.getHeight();
+		this.canvasWidth = (float)Gdx.graphics.getWidth();
+		this.canvasHeight = (float)Gdx.graphics.getHeight();
+		this.canvasRatio = this.canvasWidth/this.canvasHeight;
 		this.cam = new OrthographicCamera();
-		this.beanman = new Beanman(this.game, new Vector2(this.ratio * this.yzoom/4, this.yzoom/2), "beanman", this.cam);		
-		this.cam.setToOrtho(false, this.ratio * this.yzoom, this.yzoom);
-		this.cam.position.set(this.ratio * this.yzoom/2, this.yzoom/2, 0);
+		this.beanman = new Beanman(this.game, new Vector2(this.canvasRatio * this.yzoom/4, this.yzoom/2), "beanman", this.cam);		
+		this.cam.setToOrtho(false, this.canvasRatio * this.yzoom, this.yzoom);
+		this.cam.position.set(this.canvasRatio * this.yzoom/2, this.yzoom/2, 0);
+		
+		float scalefactorViewport = 0.5f;
+		float viewportWidth = this.canvasWidth * scalefactorViewport;
+		float viewportHeight = this.canvasHeight * scalefactorViewport;
+		float x = (this.canvasWidth - viewportWidth)/2;
+		float y = (this.canvasHeight - viewportHeight)/2;
+		this.glViewport = new Rectangle(x,
+										y,
+										viewportWidth,
+										viewportHeight);
 		this.cam.update();
 	
 	}
@@ -52,6 +68,10 @@ public class GameScreen implements Screen
 	{	
 		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+		Gdx.gl.glViewport((int)this.glViewport.x,
+						  (int)this.glViewport.y,
+						  (int)this.glViewport.getWidth(),
+						  (int)this.glViewport.getHeight());
 		this.beanman.update(delta);
 		
 
