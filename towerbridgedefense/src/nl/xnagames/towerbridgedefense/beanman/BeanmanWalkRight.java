@@ -49,9 +49,9 @@ public class BeanmanWalkRight extends AnimatedSprite
 			this.beanman.setState(this.beanman.getJumpRight());   
 		}
 		this.beanman.setPosition(this.beanman.getPosition().add(this.velocity));
-		if ( this.beanman.getPosition().x > 1920f/3f)
+		if ( this.beanman.getPosition().x > 0.1f * 1920f) //1920f/3f)
 		{
-			if (this.beanman.getCam().position.x < 960)
+			if (this.beanman.getCam().position.x < 1306)
 			{
 				this.beanman.getCam().translate(this.velocity);
 				this.beanman.getCam().update();

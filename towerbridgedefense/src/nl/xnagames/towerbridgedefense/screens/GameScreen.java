@@ -48,7 +48,7 @@ public class GameScreen implements Screen
 		this.cam.setToOrtho(false, this.canvasRatio * this.yzoom, this.yzoom);
 		this.cam.position.set(this.canvasRatio * this.yzoom/2, this.yzoom/2, 0);
 		
-		float scalefactorViewport = 0.5f;
+		float scalefactorViewport = 1.0f;
 		float viewportWidth = this.canvasWidth * scalefactorViewport;
 		float viewportHeight = this.canvasHeight * scalefactorViewport;
 		float x = (this.canvasWidth - viewportWidth)/2;

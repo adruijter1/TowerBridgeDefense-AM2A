@@ -48,8 +48,16 @@ public class BeanmanWalkLeft extends AnimatedSprite
 			this.beanman.setState(this.beanman.getJumpLeft());   
 		}
 		this.beanman.setPosition(this.beanman.getPosition().add(this.velocity));
-		this.beanman.getCam().translate(this.velocity);
-		this.beanman.getCam().update();
+		
+		if ( this.beanman.getPosition().x < 0.9f * 1920) //2f/3f * 1920f)
+		{
+			if (this.beanman.getCam().position.x > 918)
+			{
+				this.beanman.getCam().translate(this.velocity);
+				this.beanman.getCam().update();
+			}
+		}
+		
 		super.update(delta);
 	}
 			
