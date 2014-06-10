@@ -5,6 +5,7 @@ import nl.xnagames.towerbridgedefense.beanman.Beanman;
 import nl.xnagames.towerbridgedefense.image.Image;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL10;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -22,7 +23,7 @@ public class GameScreen implements Screen
 	private Texture texture;
 	private TextureRegion textureRegion;
 	private OrthographicCamera cam;
-	private float canvasRatio, yzoom = 1080;
+	private float canvasRatio, yzoom = 600;
 	private Beanman beanman;	
 	private Rectangle glViewport;
 	private float canvasWidth;
@@ -30,7 +31,20 @@ public class GameScreen implements Screen
 	
 	
 	// Properties
+	public float getCanvasWidth()
+	{
+		return this.canvasWidth;
+	}
 	
+	public float getCanvasHeight()
+	{
+		return this.canvasHeight;
+	}
+	
+	public TextureRegion getTextureRegion()
+	{
+		return this.textureRegion;
+	}
 	
 	
 	// Constructor
@@ -43,20 +57,26 @@ public class GameScreen implements Screen
 		this.canvasWidth = (float)Gdx.graphics.getWidth();
 		this.canvasHeight = (float)Gdx.graphics.getHeight();
 		this.canvasRatio = this.canvasWidth/this.canvasHeight;
-		this.cam = new OrthographicCamera();
+		this.cam = new OrthographicCamera(this.canvasWidth, this.canvasHeight);
 		this.beanman = new Beanman(this.game, new Vector2(this.canvasRatio * this.yzoom/4, this.yzoom/2), "beanman", this.cam);		
-		this.cam.setToOrtho(false, this.canvasRatio * this.yzoom, this.yzoom);
-		this.cam.position.set(this.canvasRatio * this.yzoom/2, this.yzoom/2, 0);
-		
-		float scalefactorViewport = 1.0f;
-		float viewportWidth = this.canvasWidth * scalefactorViewport;
-		float viewportHeight = this.canvasHeight * scalefactorViewport;
-		float x = (this.canvasWidth - viewportWidth)/2;
-		float y = (this.canvasHeight - viewportHeight)/2;
+		//this.cam.setToOrtho(false, this.canvasRatio * this.yzoom, this.yzoom);
+		//this.cam.position.set(this.canvasRatio * this.yzoom/2, this.yzoom/2, 0);
+		this.cam.position.set(this.canvasWidth/2, this.canvasHeight/2, 0);
+		//float scalefactorViewport = 1f;
+		//float viewportWidth = this.canvasWidth * scalefactorViewport;
+		//float viewportHeight = this.canvasHeight * scalefactorViewport;
+		//float x = (this.canvasWidth - viewportWidth)/2;
+		//float y = (this.canvasHeight - viewportHeight)/2;
+		/*
 		this.glViewport = new Rectangle(x,
 										y,
 										viewportWidth,
-										viewportHeight);
+										viewportHeight);*/
+		
+		this.glViewport = new Rectangle(0,
+										0,
+										this.canvasWidth,
+										this.canvasHeight);
 		this.cam.update();
 	
 	}
@@ -66,7 +86,7 @@ public class GameScreen implements Screen
 	@Override
 	public void render(float delta) 
 	{	
-		Gdx.gl.glClearColor(0f, 0f, 0f, 1f);
+		Gdx.gl.glClearColor(1f, 1f, 1f, 1f);
 		Gdx.gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 		Gdx.gl.glViewport((int)this.glViewport.x,
 						  (int)this.glViewport.y,
@@ -74,7 +94,32 @@ public class GameScreen implements Screen
 						  (int)this.glViewport.getHeight());
 		this.beanman.update(delta);
 		
-
+		if ( Gdx.input.isKeyPressed(Keys.A))
+		{
+			this.cam.translate(-2f, 0f, 0f);
+		}
+		if ( Gdx.input.isKeyPressed(Keys.D))
+		{
+			this.cam.translate(2f, 0f, 0f);
+		}
+		if ( Gdx.input.isKeyPressed(Keys.W))
+		{
+			this.cam.translate(0f, 2f, 0f);
+		}
+		if ( Gdx.input.isKeyPressed(Keys.S))
+		{
+			this.cam.translate(0f, -2f, 0f);
+		}
+		if ( Gdx.input.isKeyPressed(Keys.O))
+		{
+			this.cam.zoom += 0.01;
+			//this.cam.position.set(this.getCanvasWidth()/2, this.getCanvasHeight()/2, 0f);
+		}
+		if ( Gdx.input.isKeyPressed(Keys.I))
+		{
+			this.cam.zoom -= 0.01;
+			//this.cam.position.set(this.getCanvasWidth()/2, this.getCanvasHeight()/2, 0f);
+		}
 		this.cam.translate(Vector2.Zero);
 		this.cam.update();
 		this.game.getSpriteBatch().setProjectionMatrix(this.cam.combined);

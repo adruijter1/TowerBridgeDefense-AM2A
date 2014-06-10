@@ -51,7 +51,7 @@ public class BeanmanWalkLeft extends AnimatedSprite
 		
 		if ( this.beanman.getPosition().x < 0.9f * 1920) //2f/3f * 1920f)
 		{
-			if (this.beanman.getCam().position.x > 918)
+			if (this.beanman.getCam().position.x > 1024/2)  //918
 			{
 				this.beanman.getCam().translate(this.velocity);
 				this.beanman.getCam().update();
