@@ -4,7 +4,6 @@ import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.math.Vector2;

@@ -1,7 +1,5 @@
 package nl.xnagames.towerbridgedefense.cab;
 
-import java.util.HashMap;
-
 import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
 import nl.xnagames.towerbridgedefense.animation.Animation;
