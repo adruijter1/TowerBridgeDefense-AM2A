@@ -1,5 +1,6 @@
 package nl.xnagames.towerbridgedefense.beanman;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
@@ -10,6 +11,7 @@ public class BeanmanJumpRight extends AnimatedSprite
 	private Beanman beanman;
 	private int init_h, init_k, h, k;
 	private float start_x, start_y, a;
+	private Vector2 velocity;
 	
 	// Properties
 	
@@ -22,7 +24,8 @@ public class BeanmanJumpRight extends AnimatedSprite
 		this.beanman = beanman;
 		this.frameSpeed = 1f/120f;
 		this.init_h = h;
-		this.init_k = k;		
+		this.init_k = k;
+		this.velocity = new Vector2(this.beanman.getSpeed(), 0f);	
 		this.Initialize();
 		
 	}
@@ -49,9 +52,6 @@ public class BeanmanJumpRight extends AnimatedSprite
 		float x = this.beanman.getPosition().x + this.beanman.getSpeed();
 		float y = this.a * (float)Math.pow((x - this.h), 2d) + this.k;
 		
-		this.beanman.getCam().translate(new Vector2(this.beanman.getSpeed(), 0f));
-		this.beanman.getCam().update();
-		
 		if ( y < this.start_y)
 		{
 			this.beanman.setPosition(new Vector2(x, this.start_y));		
@@ -60,6 +60,15 @@ public class BeanmanJumpRight extends AnimatedSprite
 		else
 		{	
 			this.beanman.setPosition(new Vector2(x, y));	
+		}
+		
+		if ( this.beanman.getPosition().x > 0.1f * 1920) //1920f/3f)
+		{
+			if (this.beanman.getCam().position.x < 1920 - 1024/2)
+			{
+				this.beanman.getCam().translate(this.velocity);
+				this.beanman.getCam().update();
+			}
 		}
 		super.update(delta);
 	}

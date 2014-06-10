@@ -49,7 +49,6 @@ public class BeanmanWalkRight extends AnimatedSprite
 		this.beanman.setPosition(this.beanman.getPosition().add(this.velocity));
 		if ( this.beanman.getPosition().x > 0.1f * 1920) //1920f/3f)
 		{
-			Gdx.app.log("camposition", this.beanman.getCam().position.toString());
 			if (this.beanman.getCam().position.x < 1920 - 1024/2)
 			{
 				this.beanman.getCam().translate(this.velocity);

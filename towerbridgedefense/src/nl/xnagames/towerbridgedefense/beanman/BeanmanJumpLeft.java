@@ -10,6 +10,7 @@ public class BeanmanJumpLeft extends AnimatedSprite
 	private Beanman beanman;
 	private int init_h, init_k, h, k;
 	private float start_x, start_y, a;
+	private Vector2 translation;
 	
 	// Properties
 	
@@ -22,7 +23,8 @@ public class BeanmanJumpLeft extends AnimatedSprite
 		this.beanman = beanman;
 		this.frameSpeed = 1f/120f;
 		this.init_h = h;
-		this.init_k = k;		
+		this.init_k = k;
+		this.translation = new Vector2(-this.beanman.getSpeed(), 0f);
 		this.Initialize();
 		
 	}
@@ -48,9 +50,6 @@ public class BeanmanJumpLeft extends AnimatedSprite
 		float x = this.beanman.getPosition().x - this.beanman.getSpeed();
 		float y = this.a * (float)Math.pow((x - this.h), 2d) + this.k;
 		
-		this.beanman.getCam().translate(new Vector2(-this.beanman.getSpeed(), 0f));
-		this.beanman.getCam().update();
-				
 		if ( y < this.start_y)
 		{
 			this.beanman.setPosition(new Vector2(x, this.start_y));		
@@ -59,6 +58,15 @@ public class BeanmanJumpLeft extends AnimatedSprite
 		else
 		{	
 			this.beanman.setPosition(new Vector2(x, y));	
+		}
+		
+		if ( this.beanman.getPosition().x < 0.9f * 1920) //2f/3f * 1920f)
+		{
+			if (this.beanman.getCam().position.x > 1024/2)  //918
+			{
+				this.beanman.getCam().translate(this.translation);
+				this.beanman.getCam().update();
+			}
 		}
 		super.update(delta);
 	}
