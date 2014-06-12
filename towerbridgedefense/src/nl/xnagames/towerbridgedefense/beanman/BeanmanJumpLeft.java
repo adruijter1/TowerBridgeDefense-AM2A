@@ -1,5 +1,6 @@
 package nl.xnagames.towerbridgedefense.beanman;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
@@ -11,6 +12,7 @@ public class BeanmanJumpLeft extends AnimatedSprite
 	private int init_h, init_k, h, k;
 	private float start_x, start_y, a;
 	private Vector2 translation;
+	private float regionWidth, canvasWidth;
 	
 	// Properties
 	
@@ -25,6 +27,8 @@ public class BeanmanJumpLeft extends AnimatedSprite
 		this.init_h = h;
 		this.init_k = k;
 		this.translation = new Vector2(-this.beanman.getSpeed(), 0f);
+		this.regionWidth = 1920f; //this.beanman.getGame().getGameScreen().getTextureRegion().getRegionWidth();
+		this.canvasWidth = (float)Gdx.graphics.getWidth();
 		this.Initialize();
 		
 	}
@@ -60,9 +64,9 @@ public class BeanmanJumpLeft extends AnimatedSprite
 			this.beanman.setPosition(new Vector2(x, y));	
 		}
 		
-		if ( this.beanman.getPosition().x < 0.9f * 1920) //2f/3f * 1920f)
+		if ( this.beanman.getPosition().x < 0.9f * this.regionWidth) //2f/3f * 1920f)
 		{
-			if (this.beanman.getCam().position.x > 1024/2)  //918
+			if (this.beanman.getCam().position.x > this.canvasWidth/2)  //918
 			{
 				this.beanman.getCam().translate(this.translation);
 				this.beanman.getCam().update();

@@ -11,8 +11,8 @@ public class Main {
 		cfg.initialBackgroundColor = Color.BLACK;
 		cfg.title = "TowerBridge Defense";
 		cfg.useGL20 = true;
-		cfg.width = 1024;
-		cfg.height = 600;
+		cfg.width = 800; //1024;
+		cfg.height = 500; //600;
 		cfg.addIcon("Icons/bus32x32.png", Files.FileType.Internal);	
 		
 		new LwjglApplication(new TowerBridgeDefense(), cfg);

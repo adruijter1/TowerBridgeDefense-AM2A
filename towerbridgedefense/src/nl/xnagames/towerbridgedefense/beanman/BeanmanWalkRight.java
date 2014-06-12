@@ -11,6 +11,7 @@ public class BeanmanWalkRight extends AnimatedSprite
 	// Fields
 	private Beanman beanman;
 	private Vector2 velocity;
+	private float regionWidth, canvasWidth;
 	
 	// Properties
 		
@@ -20,6 +21,8 @@ public class BeanmanWalkRight extends AnimatedSprite
 		super(beanman);
 		this.beanman = beanman;
 		this.velocity = new Vector2(beanman.getSpeed(), 0);
+		this.regionWidth = 1920f; //this.beanman.getGame().getGameScreen().getTextureRegion().getRegionWidth();
+		this.canvasWidth = (float)Gdx.graphics.getWidth();
 		this.Initialize();
 	}
 	
@@ -47,9 +50,9 @@ public class BeanmanWalkRight extends AnimatedSprite
 			this.beanman.setState(this.beanman.getJumpRight());   
 		}
 		this.beanman.setPosition(this.beanman.getPosition().add(this.velocity));
-		if ( this.beanman.getPosition().x > 0.1f * 1920) //1920f/3f)
+		if ( this.beanman.getPosition().x > 0.1f * this.regionWidth) 
 		{
-			if (this.beanman.getCam().position.x < 1920 - 1024/2)
+			if (this.beanman.getCam().position.x < this.regionWidth - this.canvasWidth/2)
 			{
 				this.beanman.getCam().translate(this.velocity);
 				this.beanman.getCam().update();

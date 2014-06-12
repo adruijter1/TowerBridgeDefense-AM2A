@@ -12,6 +12,7 @@ public class BeanmanJumpRight extends AnimatedSprite
 	private int init_h, init_k, h, k;
 	private float start_x, start_y, a;
 	private Vector2 velocity;
+	private float regionWidth, canvasWidth;
 	
 	// Properties
 	
@@ -25,7 +26,9 @@ public class BeanmanJumpRight extends AnimatedSprite
 		this.frameSpeed = 1f/120f;
 		this.init_h = h;
 		this.init_k = k;
-		this.velocity = new Vector2(this.beanman.getSpeed(), 0f);	
+		this.velocity = new Vector2(this.beanman.getSpeed(), 0f);
+		this.regionWidth = 1920f; 
+		this.canvasWidth = (float)Gdx.graphics.getWidth();
 		this.Initialize();
 		
 	}
@@ -62,9 +65,9 @@ public class BeanmanJumpRight extends AnimatedSprite
 			this.beanman.setPosition(new Vector2(x, y));	
 		}
 		
-		if ( this.beanman.getPosition().x > 0.1f * 1920) //1920f/3f)
+		if ( this.beanman.getPosition().x > 0.1f * this.regionWidth) 
 		{
-			if (this.beanman.getCam().position.x < 1920 - 1024/2)
+			if (this.beanman.getCam().position.x < this.regionWidth - this.canvasWidth/2)
 			{
 				this.beanman.getCam().translate(this.velocity);
 				this.beanman.getCam().update();

@@ -23,7 +23,6 @@ public class GameScreen implements Screen
 	private Texture texture;
 	private TextureRegion textureRegion;
 	private OrthographicCamera cam;
-	private float canvasRatio, yzoom = 600;
 	private Beanman beanman;	
 	private Rectangle glViewport;
 	private float canvasWidth;
@@ -47,6 +46,8 @@ public class GameScreen implements Screen
 	}
 	
 	
+	
+	
 	// Constructor
 	public GameScreen(TowerBridgeDefense game)
 	{
@@ -56,23 +57,9 @@ public class GameScreen implements Screen
 		this.background = new Image(this.game, Vector2.Zero, this.textureRegion);
 		this.canvasWidth = (float)Gdx.graphics.getWidth();
 		this.canvasHeight = (float)Gdx.graphics.getHeight();
-		this.canvasRatio = this.canvasWidth/this.canvasHeight;
 		this.cam = new OrthographicCamera(this.canvasWidth, this.canvasHeight);
-		this.beanman = new Beanman(this.game, new Vector2(this.canvasRatio * this.yzoom/4, this.yzoom/2), "beanman", this.cam);		
-		//this.cam.setToOrtho(false, this.canvasRatio * this.yzoom, this.yzoom);
-		//this.cam.position.set(this.canvasRatio * this.yzoom/2, this.yzoom/2, 0);
+		this.beanman = new Beanman(this.game, new Vector2(this.canvasWidth/2, this.canvasHeight/2), "beanman", this.cam);	
 		this.cam.position.set(this.canvasWidth/2, this.canvasHeight/2, 0);
-		//float scalefactorViewport = 1f;
-		//float viewportWidth = this.canvasWidth * scalefactorViewport;
-		//float viewportHeight = this.canvasHeight * scalefactorViewport;
-		//float x = (this.canvasWidth - viewportWidth)/2;
-		//float y = (this.canvasHeight - viewportHeight)/2;
-		/*
-		this.glViewport = new Rectangle(x,
-										y,
-										viewportWidth,
-										viewportHeight);*/
-		
 		this.glViewport = new Rectangle(0,
 										0,
 										this.canvasWidth,
@@ -112,7 +99,11 @@ public class GameScreen implements Screen
 		}
 		if ( Gdx.input.isKeyPressed(Keys.O))
 		{
-			this.cam.zoom += 0.01;
+			if (this.glViewport.getHeight() < 800)
+			{
+				this.cam.zoom += 0.01;
+				Gdx.app.log("glviewport", Float.toString(this.cam.zoom));
+			}
 			//this.cam.position.set(this.getCanvasWidth()/2, this.getCanvasHeight()/2, 0f);
 		}
 		if ( Gdx.input.isKeyPressed(Keys.I))
