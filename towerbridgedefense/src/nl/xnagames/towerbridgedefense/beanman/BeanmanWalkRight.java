@@ -21,7 +21,7 @@ public class BeanmanWalkRight extends AnimatedSprite
 		super(beanman);
 		this.beanman = beanman;
 		this.velocity = new Vector2(beanman.getSpeed(), 0);
-		this.regionWidth = 1920f; //this.beanman.getGame().getGameScreen().getTextureRegion().getRegionWidth();
+		this.regionWidth = 1920f; 
 		this.canvasWidth = (float)Gdx.graphics.getWidth();
 		this.Initialize();
 	}

@@ -11,8 +11,8 @@ public class BeanmanJumpLeft extends AnimatedSprite
 	private Beanman beanman;
 	private int init_h, init_k, h, k;
 	private float start_x, start_y, a;
-	private Vector2 translation;
-	private float regionWidth, canvasWidth;
+	private Vector2 translation, translation_y;
+	private float regionWidth, canvasWidth, regionHeight, canvasHeight;
 	
 	// Properties
 	
@@ -27,8 +27,11 @@ public class BeanmanJumpLeft extends AnimatedSprite
 		this.init_h = h;
 		this.init_k = k;
 		this.translation = new Vector2(-this.beanman.getSpeed(), 0f);
-		this.regionWidth = 1920f; //this.beanman.getGame().getGameScreen().getTextureRegion().getRegionWidth();
+		this.translation_y = new Vector2(0f, this.beanman.getSpeed());
+		this.regionWidth = 1920f;
+		this.regionHeight = 1080;
 		this.canvasWidth = (float)Gdx.graphics.getWidth();
+		this.canvasHeight = (float)Gdx.graphics.getHeight();
 		this.Initialize();
 		
 	}
@@ -64,11 +67,20 @@ public class BeanmanJumpLeft extends AnimatedSprite
 			this.beanman.setPosition(new Vector2(x, y));	
 		}
 		
-		if ( this.beanman.getPosition().x < 0.9f * this.regionWidth) //2f/3f * 1920f)
+		if ( this.beanman.getPosition().x < 0.9f * this.regionWidth) 
 		{
-			if (this.beanman.getCam().position.x > this.canvasWidth/2)  //918
+			if (this.beanman.getCam().position.x > this.canvasWidth/2)  
 			{
 				this.beanman.getCam().translate(this.translation);
+				this.beanman.getCam().update();
+			}
+		}
+		
+		if ( this.beanman.getPosition().y < 0.7f * this.regionHeight)
+		{
+			if (this.beanman.getCam().position.y > this.canvasHeight/2) 
+			{
+				this.beanman.getCam().translate(this.translation_y);
 				this.beanman.getCam().update();
 			}
 		}
