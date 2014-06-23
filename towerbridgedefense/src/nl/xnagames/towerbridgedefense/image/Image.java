@@ -8,15 +8,21 @@ import nl.xnagames.towerbridgedefense.TowerBridgeDefense;
 
 public class Image 
 {
-	protected TowerBridgeDefense game;
-	protected Rectangle rectangle;
+	private TowerBridgeDefense game;
+	private Rectangle rectangle;
 	protected Vector2 position;
-	protected TextureRegion region;
+	private TextureRegion region;
+	private Vector2 scale = new Vector2(1f, 1f);
 	
+	public void setScale(Vector2 scale)
+	{
+		this.scale = scale;
+	}
+
 	public Image(TowerBridgeDefense game, Vector2 position, TextureRegion region)
 	{
 		this.game = game;
-		this.position = position;
+		this.position = new Vector2(position.x, position.y);
 		this.region = region;
 		this.rectangle = new Rectangle((int)this.position.x,
 									   (int)this.position.y,
@@ -38,8 +44,8 @@ public class Image
 										0f,
 										this.region.getRegionWidth(),
 										this.region.getRegionHeight(),
-										1f,
-										1f,
+										this.scale.x,
+										this.scale.y,
 										0f);
 	}
 }

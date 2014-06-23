@@ -1,6 +1,8 @@
 package nl.xnagames.towerbridgedefense.beanman;
 
 import nl.xnagames.towerbridgedefense.animatedsprite.AnimatedSprite;
+import nl.xnagames.towerbridgedefense.rocket.Rocket;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
@@ -12,6 +14,7 @@ public class BeanmanWalkRight extends AnimatedSprite
 	private Beanman beanman;
 	private Vector2 velocity;
 	private float regionWidth, canvasWidth;
+	private boolean ks, oks = false;
 	
 	// Properties
 		
@@ -41,6 +44,7 @@ public class BeanmanWalkRight extends AnimatedSprite
 	// Update method
 	public void update(float delta)
 	{
+		ks = Gdx.input.isKeyPressed(Keys.R);
 		if (!Gdx.input.isKeyPressed(Keys.RIGHT))
 		{
 			this.beanman.setState(this.beanman.getIdleRight());
@@ -57,7 +61,21 @@ public class BeanmanWalkRight extends AnimatedSprite
 				this.beanman.getCam().translate(this.velocity);
 				this.beanman.getCam().update();
 			}
-		}		
+		}
+		if (this.ks && !this.oks)
+		{
+			this.beanman.getRocketList().add(new Rocket(this.beanman.getGame(),
+											 this.beanman.getOffsetRight(),
+											 this.beanman.getPosition(),
+											 this.beanman.getGame().getAtlas().findRegion("part_rocket")));
+		}
+		
+		for (Rocket rocket : this.beanman.getRocketList())
+		{
+			rocket.update(delta);
+		}
+		
+		oks = ks;
 		super.update(delta);
 	}
 			
@@ -65,6 +83,11 @@ public class BeanmanWalkRight extends AnimatedSprite
 	public void draw(float delta)
 	{
 		super.draw(delta);
+		for (Rocket rocket : this.beanman.getRocketList())
+		{
+			rocket.draw(delta);
+		}
+		
 	}
 
 

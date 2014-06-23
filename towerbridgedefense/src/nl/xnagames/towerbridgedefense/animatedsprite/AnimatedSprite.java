@@ -29,7 +29,7 @@ public class AnimatedSprite
 			this.timer = 0;
 			if ( this.frame >= this.animation.getRegion().size)
 			{
-				this.frame = 1;
+				this.frame = 0;
 			}
 		}
 	}	

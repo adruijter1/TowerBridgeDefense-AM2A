@@ -60,7 +60,7 @@ public class Particle
 	public void draw(float delta)
 	{
 		Color color = batch.getColor();
-		batch.setColor(1f, 1f, 1f, 0.1f);
+		batch.setColor(1f, 1f, 1f, 0.4f);
 		batch.draw(this.region,
 				   this.position.x, 
 				   this.position.y, 
